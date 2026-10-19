@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
@@ -8,6 +9,7 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+
   <style>
     section {
       padding: 60px 0;
@@ -17,22 +19,88 @@
       background-color: #f8f9fa;
     }
 
+    .card {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
     .card:hover {
       transform: translateY(-5px);
-      transition: 0.3s;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 技術標籤代表色 */
+    .badge-swift {
+      background-color: #F05138;
+      color: #fff;
+    }
+
+    .badge-dotnet {
+      background-color: #512BD4;
+      color: #fff;
+    }
+
+    .badge-sql {
+      background-color: #4479A1;
+      color: #fff;
+    }
+
+    .badge-javascript {
+      background-color: #F7DF1E;
+      color: #222;
+    }
+
+    .badge-html {
+      background-color: #A63D40;
+      color: #fff;
+    }
+
+    .badge-java {
+      background-color: #E76F00;
+      color: #fff;
+    }
+
+    /* 手機版工作與學歷日期排版 */
+    .timeline-heading {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 4px 12px;
+    }
+
+    .timeline-date {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 576px) {
+      section {
+        padding: 45px 0;
+      }
+
+      .timeline-date {
+        font-size: 0.8rem;
+      }
+
+      .project-badges {
+        line-height: 2.2;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- 導覽列 -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Fan's Portfolio</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <a class="navbar-brand fw-bold" href="#home">Fan's Portfolio</a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="切換導覽列">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#home">首頁</a></li>
@@ -45,12 +113,13 @@
     </div>
   </nav>
 
+  <!-- 首頁 -->
   <section id="home" class="py-5 bg-light border-bottom">
     <div class="container text-center">
       <h2 class="fw-bold mb-3">你好，我是樊柔妤</h2>
 
       <p class="lead text-secondary mb-4 fs-6">
-        淡江大學 | 資管系 | 大三
+        淡江大學 | 資管系 | 大四
       </p>
 
       <div class="d-flex justify-content-center gap-3">
@@ -60,57 +129,86 @@
     </div>
   </section>
 
-  <section id="about" class="bg-white ">
+  <!-- 關於我 -->
+  <section id="about" class="bg-white">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8">
+
           <h2 class="mb-5 fw-bold text-center">關於我</h2>
 
           <div class="p-4 mb-5 border-start border-4 border-secondary bg-white shadow-sm">
             <h4 class="fw-bold mb-3 text-dark">
-              熟悉 Java <span class="text-secondary mx-2">|</span> 具備 C# 基礎 <span class="text-secondary mx-2">|</span> SQL
-              基本操作
+              Java 程式設計 <span class="text-secondary mx-2">|</span>
+              C# (.NET) <span class="text-secondary mx-2">|</span>
+              SQL 資料庫
             </h4>
+
             <p class="lead text-secondary mb-3">
-              <i class="bi bi-person-fill text-dark me-2"></i> 主修 <strong>Java 程式設計</strong>，熟悉物件導向觀念與系統開發。<br>
-              同時掌握 <strong>C# (.NET)</strong> 開發技能，並能熟練運用 <strong>SQL</strong> 進行資料庫查詢與管理。<br>目前因畢業專題需求，正積極自學
-              <strong>Swift</strong> 進行 iOS 行動裝置應用開發。
+              <i class="bi bi-person-fill text-dark me-2"></i>
+              主修 <strong>Java 程式設計</strong>，熟悉物件導向觀念與系統開發。
+              具備 <strong>C# (.NET MVC)</strong> 實作經驗，並能使用
+              <strong>SQL</strong> 進行資料庫查詢與操作。
             </p>
+
             <p class="mb-0">
-              <i class="bi bi-pencil-square text-dark me-2"></i> 平時習慣將練習的專案上傳至 GitHub
-              進行版本控制，紀錄學習過程中遇到的問題與解法。希望能透過持續的實作，讓自己的程式基礎更扎實。
+              <i class="bi bi-pencil-square text-dark me-2"></i>
+              平時習慣將練習的專案上傳至 GitHub 進行版本控制，
+              紀錄學習過程中遇到的問題與解法。希望能透過持續的實作，
+              讓自己的程式基礎更扎實。
             </p>
           </div>
 
+          <!-- 學歷 -->
           <h5 class="fw-bold text-center text-secondary mb-4">學歷</h5>
 
           <div>
-            <div class="d-flex justify-content-between mb-1">
-              <h6 class="fw-bold fs-5 mb-0"><i class="bi bi-mortarboard-fill text-primary me-2"></i> 淡江大學</h6>
-              <span class="small text-muted">Sep. 2023 - Jun. 2027</span>
+            <div class="timeline-heading mb-1">
+              <h6 class="fw-bold fs-5 mb-0">
+                <i class="bi bi-mortarboard-fill text-primary me-2"></i>
+                淡江大學
+              </h6>
+              <span class="small text-muted timeline-date">Sep. 2023 - Jun. 2027</span>
             </div>
-            <p class="middle text-muted mb-0">主修：資訊管理學系</p>
-            <p class="middle text-muted mb-0">狀態：大學日間就讀中</p>
+
+            <p class="text-muted mb-0">主修：資訊管理學系</p>
+            <p class="text-muted mb-0">狀態：大學日間就讀中</p>
           </div>
+
           <div class="mb-4 pb-4 border-bottom"></div>
+
+          <!-- 工作經歷 -->
           <h5 class="fw-bold text-center text-secondary mb-4">工作經歷</h5>
 
           <div class="mb-4">
-            <div class="d-flex justify-content-between mb-1">
-              <h6 class="fw-bold fs-5 mb-0"><i class="bi bi-briefcase-fill text-warning me-2"></i> 叡揚資訊股份有限公司</h6>
-              <span class="small text-muted">Jan. 2026 - Present</span>
+            <div class="timeline-heading mb-1">
+              <h6 class="fw-bold fs-5 mb-0">
+                <i class="bi bi-briefcase-fill text-warning me-2"></i>
+                叡揚資訊股份有限公司
+              </h6>
+              <span class="small text-muted timeline-date">Jan. 2026 - Aug. 2026</span>
             </div>
+
             <p class="fw-bold text-dark mb-1">職務：實習軟體助理工程師</p>
-            <p class="text-muted mb-0">內容：參與公文管理系統之日常維護與功能優化，熟悉企業級軟體開發流程與系統穩定性維護。</p>
+            <p class="text-muted mb-0">
+              內容：參與公文管理系統的日常維護與功能調整，
+              使用 C#/.NET MVC 進行功能修改及問題排查。
+            </p>
           </div>
 
           <div class="mb-4">
-            <div class="d-flex justify-content-between mb-1">
-              <h6 class="fw-bold fs-5 mb-0"><i class="bi bi-briefcase-fill text-warning me-2"></i> 嘉義市政府</h6>
-              <span class="small text-muted">Jul. 2025 - Aug. 2025</span>
+            <div class="timeline-heading mb-1">
+              <h6 class="fw-bold fs-5 mb-0">
+                <i class="bi bi-briefcase-fill text-warning me-2"></i>
+                嘉義市政府
+              </h6>
+              <span class="small text-muted timeline-date">Jul. 2025 - Aug. 2025</span>
             </div>
+
             <p class="fw-bold text-dark mb-1">職務：工讀生</p>
-            <p class="text-muted mb-0">內容：負責基本文書處理、公文檔案整理及活動現場執行協助。</p>
+            <p class="text-muted mb-0">
+              內容：負責基本文書處理、公文檔案整理及活動現場執行協助。
+            </p>
           </div>
 
         </div>
@@ -118,68 +216,77 @@
     </div>
   </section>
 
+  <!-- 技術能力 -->
   <section id="skills" class="bg-light">
     <div class="container">
       <h2 class="text-center mb-5 fw-bold">技術能力</h2>
 
       <div class="row g-4 justify-content-center">
 
+        <!-- Java -->
         <div class="col-lg-3 col-md-6">
           <div class="card h-100 text-center p-4 border-0 shadow-sm">
-            <div class="fs-1 text-primary mb-3"><i class="bi bi-filetype-java"></i></div>
+            <div class="fs-1 mb-3">
+              <i class="bi bi-filetype-java" style="color: #E76F00;"></i>
+            </div>
+
             <h4 class="card-title">Java 開發</h4>
+
             <ul class="list-unstyled text-secondary mt-3 text-start d-inline-block">
-              <li><i class="bi bi-check-circle-fill text-success me-2"></i>物件導向 (封裝/繼承/多型)</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>物件導向（封裝／繼承／多型）</li>
               <li><i class="bi bi-check-circle-fill text-success me-2"></i>例外處理與 I/O</li>
               <li><i class="bi bi-check-circle-fill text-success me-2"></i>抽象類別與介面應用</li>
             </ul>
           </div>
         </div>
 
+        <!-- C# / .NET -->
         <div class="col-lg-3 col-md-6">
           <div class="card h-100 text-center p-4 border-0 shadow-sm">
-            <div class="fs-1 text-purple mb-3" style="color: #6a1b9a;"><i class="bi bi-filetype-cs"></i></div>
+            <div class="fs-1 mb-3" style="color: #6a1b9a;">
+              <i class="bi bi-filetype-cs"></i>
+            </div>
+
             <h4 class="card-title">C# (.NET) 開發</h4>
+
             <ul class="list-unstyled text-secondary mt-3 text-start d-inline-block">
-              <li><i class="bi bi-check-circle-fill text-success me-2"></i>掌握 MVC 架構模式</li>
-              <li><i class="bi bi-check-circle-fill text-success me-2"></i>了解系統分層設計概念</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>MVC 架構與分層概念</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>系統功能維護與除錯</li>
               <li><i class="bi bi-check-circle-fill text-success me-2"></i>前端 HTML/JS 整合</li>
             </ul>
           </div>
         </div>
 
+        <!-- 版本控制 -->
         <div class="col-lg-3 col-md-6">
           <div class="card h-100 text-center p-4 border-0 shadow-sm">
-            <div class="fs-1 text-dark mb-3"><i class="bi bi-git"></i></div>
+            <div class="fs-1 text-dark mb-3">
+              <i class="bi bi-git"></i>
+            </div>
+
             <h4 class="card-title">版本控制與工具</h4>
+
             <ul class="list-unstyled text-secondary mt-3 text-start d-inline-block">
               <li><i class="bi bi-check-circle-fill text-success me-2"></i>Git / GitLab 多人協作流程</li>
               <li><i class="bi bi-check-circle-fill text-success me-2"></i>分支管理與衝突排解實務</li>
-              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Jenkins 自動化部署概念</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Jenkins 建置與打包流程</li>
             </ul>
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6">
+        <!-- SQL -->
+        <div class="col-lg-3 col-md-6">
           <div class="card h-100 text-center p-4 border-0 shadow-sm">
-            <div class="fs-1 text-swift mb-3" style="color: #F05138;"><i class="bi bi-apple"></i></div>
-            <h4 class="card-title">Swift (iOS)</h4>
-            <ul class="list-unstyled text-secondary mt-3 text-start d-inline-block">
-              <li><i class="bi bi-check-circle text-success me-2"></i>專題導向自學中</li>
-              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Swift 語法基礎</li>
-              <li><i class="bi bi-check-circle-fill text-success me-2"></i>iOS 應用開發實作</li>
-            </ul>
-          </div>
-        </div>
+            <div class="fs-1 text-info mb-3">
+              <i class="bi bi-database-fill"></i>
+            </div>
 
-        <div class="col-lg-4 col-md-6">
-          <div class="card h-100 text-center p-4 border-0 shadow-sm">
-            <div class="fs-1 text-info mb-3"><i class="bi bi-database-fill"></i></div>
             <h4 class="card-title">SQL 資料庫</h4>
+
             <ul class="list-unstyled text-secondary mt-3 text-start d-inline-block">
-              <li><i class="bi bi-check-circle-fill text-success me-2"></i>資料查詢與條件篩選</li>
-              <li><i class="bi bi-check-circle-fill text-success me-2"></i>CTE 進階操作應用</li>
-              <li><i class="bi bi-check-circle-fill text-success me-2"></i>資料分析與處理能力</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>SQL 語法與資料查詢</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>條件篩選與資料處理</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>資料新增、修改與刪除</li>
             </ul>
           </div>
         </div>
@@ -188,86 +295,115 @@
     </div>
   </section>
 
+  <!-- 專案作品 -->
   <section id="portfolio" class="bg-white">
     <div class="container">
       <h2 class="text-center mb-5 fw-bold">專案作品</h2>
+
       <div class="row g-4">
 
+        <!-- SteadyHope -->
         <div class="col-lg-4 col-md-6">
           <div class="card h-100 border-0 shadow-sm">
-            <div class="card-header bg-transparent border-0 pt-4 px-4">
-              <span class="badge" style="background-color: #F05138;">Swift</span> <span
-                class="badge bg-primary">MVVM</span>
-              <span class="badge bg-dark">Xcode</span>
-              <span class="badge bg-success">iOS App</span>
+
+            <div class="card-header bg-transparent border-0 pt-4 px-4 project-badges">
+              <span class="badge badge-swift">Swift</span>
+              <span class="badge bg-secondary">iOS App</span>
+              <span class="badge bg-info text-dark">MVVM</span>
+              <span class="badge bg-success">競賽第三名</span>
             </div>
 
             <div class="card-body px-4">
-              <h5 class="card-title fw-bold">
-                帕金森氏症照護輔助系統
-                <span class="text-muted font-monospace fw-normal"
-                  style="font-size: 0.8rem; vertical-align: middle; margin-left: 5px;">(In Progress)</span>
-              </h5>
+              <h5 class="card-title fw-bold">SteadyHope 帕金森氏症照護輔助系統</h5>
+
               <p class="card-text text-muted">
-                負責使用者端 APP 開發，採用 <strong>MVVM 架構</strong> 確保程式碼高維護性。設計直觀的界面與功能，專注於提升患者的無障礙使用體驗。
+                帕金森氏症照護輔助 iOS App，使用 Swift 開發並採用 MVVM 架構，
+                涵蓋穿戴式裝置資料整合、用藥管理及日常健康紀錄等功能。
+                參與 App 開發，並獲得淡江大學資管系專題製作競賽第三名。
               </p>
             </div>
 
             <div class="card-footer bg-transparent border-0 px-4 pb-4">
-              <a href="https://github.com/Fannno/Glove.git" target="_blank" class="btn btn-dark w-100">
-                <i class="bi bi-github me-2"></i> 查看專題程式碼
+              <a href="https://github.com/Fannno/SteadyHope-iOS"
+                target="_blank" rel="noopener noreferrer"
+                class="btn btn-dark w-100">
+                <i class="bi bi-github me-2"></i>查看專題程式碼
               </a>
             </div>
+
           </div>
         </div>
 
+        <!-- QWQ -->
         <div class="col-lg-4 col-md-6">
           <div class="card h-100 border-0 shadow-sm">
-            <div class="card-header bg-transparent border-0 pt-4 px-4">
-              <span class="badge bg-primary">HTML/CSS</span>
-              <span class="badge bg-warning text-dark">JavaScript</span>
-              <span class="badge bg-success">MongoDB</span>
-              <span class="badge bg-info text-dark">Render</span>
+
+            <div class="card-header bg-transparent border-0 pt-4 px-4 project-badges">
+              <span class="badge badge-dotnet">C# / .NET MVC</span>
+              <span class="badge badge-sql">SQL Server</span>
+              <span class="badge badge-javascript">JavaScript</span>
+              <span class="badge bg-secondary">持續開發中</span>
             </div>
+
             <div class="card-body px-4">
-              <h5 class="card-title fw-bold">記帳系統</h5>
+              <h5 class="card-title fw-bold">QWQ 規餘記</h5>
+              <p class="text-muted small mb-2">Quick Wallet Query</p>
+
               <p class="card-text text-muted">
-                114 網頁程式設計期末專案。此系統可讓使用者新增、編輯與刪除收支紀錄，並清楚掌握個人財務狀況。
+                個人收支管理系統，包含收支紀錄、預算管理與財務資訊查詢。
+                使用 C#/.NET MVC 建構系統架構，並以 SQL Server
+                處理資料庫操作，目前持續完善系統功能。
               </p>
             </div>
+
             <div class="card-footer bg-transparent border-0 px-4 pb-4">
-              <a href="https://fannno.github.io/114_web_endterm_project/" target="_blank"
+              <a href="https://github.com/Fannno/114_web_endterm_project"
+                target="_blank" rel="noopener noreferrer"
                 class="btn btn-outline-dark w-100">
-                <i class="bi bi-window-fullscreen me-2"></i>試用系統
+                <i class="bi bi-github me-2"></i>查看程式碼
               </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Hatchabit -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 border-0 shadow-sm">
+
+            <div class="card-header bg-transparent border-0 pt-4 px-4 project-badges">
+              <span class="badge badge-html">HTML/CSS</span>
+              <span class="badge badge-javascript">JavaScript</span>
+              <span class="badge bg-secondary">Vibe Coding</span>
+            </div>
+
+            <div class="card-body px-4">
+              <h5 class="card-title fw-bold">Hatchabit</h5>
+              <p class="text-muted small mb-2">電子寵物養成 Web App</p>
+
+              <p class="card-text text-muted">
+                以日常照顧與角色成長為主題的互動網頁，包含餵食、洗澡、玩耍、
+                房間佈置與小遊戲。透過生成式 AI 輔助開發，反覆測試並調整功能、
+                操作流程與遊戲機制。
+              </p>
+            </div>
+
+            <div class="card-footer bg-transparent border-0 px-4 pb-4">
+              <a href="https://fannno.github.io/hatchabit/"
+                target="_blank" rel="noopener noreferrer"
+                class="btn btn-outline-dark w-100">
+                <i class="bi bi-window-fullscreen me-2"></i>試玩系統
+              </a>
+
               <div class="mt-2 text-center">
-                <a href="https://github.com/Fannno/114_web_endterm_project" target="_blank"
+                <a href="https://github.com/Fannno/hatchabit"
+                  target="_blank" rel="noopener noreferrer"
                   class="text-secondary text-decoration-none small">
                   <i class="bi bi-github"></i> 查看程式碼
                 </a>
               </div>
             </div>
-          </div>
-        </div>
 
-
-        <div class="col-lg-4 col-md-6">
-          <div class="card h-100 border-0 shadow-sm">
-            <div class="card-header bg-transparent border-0 pt-4 px-4">
-              <span class="badge bg-dark">GitHub</span>
-              <span class="badge bg-secondary">所有專案</span>
-            </div>
-            <div class="card-body px-4">
-              <h5 class="card-title fw-bold">個人 GitHub 作品庫</h5>
-              <p class="card-text text-muted">
-                彙整所有學習與實作的程式碼倉庫，包含資安研究、網頁設計作業、與未來規劃的獨立專案。
-              </p>
-            </div>
-            <div class="card-footer bg-transparent border-0 px-4 pb-4">
-              <a href="https://github.com/Fannno" target="_blank" class="btn btn-dark w-100">
-                <i class="bi bi-github me-2"></i> 前往個人檔案
-              </a>
-            </div>
           </div>
         </div>
 
@@ -275,24 +411,31 @@
     </div>
   </section>
 
+  <!-- 聯絡方式 -->
   <section id="contact" class="bg-light text-center">
     <div class="container">
       <h3 class="mb-4 fw-bold">聯絡我</h3>
       <p class="mb-4 text-muted">歡迎直接透過以下 Email 聯繫我。</p>
+
       <a href="mailto:tweety94430@gmail.com" class="btn btn-dark btn-lg px-5">
-        <i class="bi bi-envelope-fill me-2"></i> 寄信給我
+        <i class="bi bi-envelope-fill me-2"></i>寄信給我
       </a>
     </div>
   </section>
 
+  <!-- 頁尾 -->
   <footer class="bg-dark text-white text-center py-4">
     <div class="container">
       <div class="mb-3">
-        <a href="https://github.com/Fannno" target="_blank" class="text-white mx-3 text-decoration-none">
+        <a href="https://github.com/Fannno"
+          target="_blank" rel="noopener noreferrer"
+          class="text-white mx-3 text-decoration-none"
+          aria-label="GitHub 個人頁面">
           <i class="bi bi-github fs-4"></i>
         </a>
       </div>
-      <small>&copy; 2025 Fannno. All Rights Reserved.</small>
+
+      <small>&copy; 2026 Fannno. All Rights Reserved.</small>
     </div>
   </footer>
 
