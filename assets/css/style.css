@@ -1,0 +1,260 @@
+/* ==========================================================================
+   Fan's Portfolio - 全站共用樣式表
+   維持簡潔黑白灰設計語言，兼顧首頁與專案詳細介紹頁一致體驗
+   ========================================================================== */
+
+section {
+  padding: 60px 0;
+}
+
+.hero-bg {
+  background-color: #f8f9fa;
+}
+
+/* 卡片基礎互動 */
+.card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 首頁專案卡片：整張可點擊與外部連結隔離 */
+.project-card {
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  border-color: rgba(33, 37, 41, 0.35) !important;
+}
+
+.project-card-action {
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.project-card-action i {
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover .project-card-action i,
+.project-card:focus-within .project-card-action i {
+  transform: translateX(4px);
+}
+
+.project-card-links {
+  position: relative;
+  z-index: 2;
+}
+
+/* 技術標籤代表色 */
+.badge-swift {
+  background-color: #F05138;
+  color: #fff;
+}
+
+.badge-dotnet {
+  background-color: #512BD4;
+  color: #fff;
+}
+
+.badge-sql {
+  background-color: #4479A1;
+  color: #fff;
+}
+
+.badge-javascript {
+  background-color: #F7DF1E;
+  color: #222;
+}
+
+.badge-html {
+  background-color: #A63D40;
+  color: #fff;
+}
+
+.badge-java {
+  background-color: #E76F00;
+  color: #fff;
+}
+
+.badge-react {
+  background-color: #087EA4;
+  color: #fff;
+}
+
+.badge-node {
+  background-color: #3C873A;
+  color: #fff;
+}
+
+.badge-mongodb {
+  background-color: #13AA52;
+  color: #fff;
+}
+
+/* 學經歷時間軸排版 */
+.timeline-heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4px 12px;
+}
+
+.timeline-date {
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   專案詳細介紹頁專用樣式
+   ========================================================================== */
+
+.project-hero {
+  padding: 48px 0 40px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.project-section {
+  padding: 48px 0;
+}
+
+.section-heading {
+  font-weight: 700;
+  color: #212529;
+  padding-left: 14px;
+  border-left: 4px solid #212529;
+  margin-bottom: 1.5rem;
+}
+
+/* 靜態資訊卡片（內頁結構卡不套用首頁懸浮上移，保持閱讀穩定） */
+.info-panel {
+  background-color: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+}
+
+.info-panel-muted {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 0.5rem;
+}
+
+/* 原生 SVG 系統架構圖容器 */
+.arch-diagram-box {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+.arch-diagram-box svg {
+  display: block;
+  width: 100%;
+  max-width: 820px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* 問題與解決方式卡片 */
+.troubleshoot-card {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-left: 4px solid #495057;
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.5rem;
+  height: 100%;
+}
+
+/* 個人貢獻與團隊分工對照 */
+.role-boundary-box {
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  height: 100%;
+}
+
+.role-boundary-box.role-personal {
+  background-color: #ffffff;
+  border-top: 4px solid #212529;
+}
+
+.role-boundary-box.role-team {
+  background-color: #f8f9fa;
+  border-top: 4px solid #6c757d;
+}
+
+/* 專案截圖與預留展示區 */
+.screenshot-figure {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0;
+  height: 100%;
+}
+
+.screenshot-placeholder {
+  background-color: #f8f9fa;
+  border: 1.5px dashed #adb5bd;
+  border-radius: 0.375rem;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.25rem;
+  color: #6c757d;
+}
+
+.screenshot-placeholder-portrait {
+  aspect-ratio: 9 / 16;
+  max-height: 360px;
+  margin: 0 auto;
+}
+
+.code-path {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875em;
+  background-color: #f1f3f5;
+  color: #212529;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  word-break: break-word;
+}
+
+/* 響應式微調 */
+@media (max-width: 576px) {
+  section {
+    padding: 45px 0;
+  }
+
+  .project-hero {
+    padding: 36px 0 28px;
+  }
+
+  .project-section {
+    padding: 36px 0;
+  }
+
+  .timeline-date {
+    font-size: 0.8rem;
+  }
+
+  .project-badges {
+    line-height: 2.2;
+  }
+
+  .arch-diagram-box {
+    padding: 1rem;
+  }
+}

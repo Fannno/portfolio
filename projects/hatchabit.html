@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hatchabit 電子寵物養成 Web App | 樊柔妤作品集</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- 導覽列 -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="../index.html#home">Fan's Portfolio</a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html#home">首頁</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#about">關於我</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#skills">專業技能</a></li>
+          <li class="nav-item"><a class="nav-link active" href="../index.html#portfolio">專案作品</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#contact">聯絡方式</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. 專案名稱、簡介與外部連結 -->
+  <header class="project-hero">
+    <div class="container">
+      <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb mb-0 small">
+          <li class="breadcrumb-item"><a href="../index.html#portfolio" class="text-decoration-none text-secondary">專案作品</a></li>
+          <li class="breadcrumb-item active text-dark" aria-current="page">Hatchabit</li>
+        </ol>
+      </nav>
+
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <div class="project-badges mb-3">
+            <span class="badge badge-html">HTML5 / CSS3</span>
+            <span class="badge badge-javascript">Vanilla JavaScript</span>
+            <span class="badge bg-dark">Inline SVG</span>
+            <span class="badge bg-secondary">LocalStorage</span>
+            <span class="badge bg-success">Version 6.0</span>
+          </div>
+
+          <h1 class="fw-bold mb-2">Hatchabit</h1>
+          <p class="text-muted mb-3">和小小夥伴一起慢慢長大 — 單一檔案純前端電子寵物養成 Web App</p>
+          <p class="lead fs-6 text-secondary mb-0">
+            以日常照顧、房間佈置與角色成長為主題的互動網頁遊戲。全系統不依賴任何外部前端框架、後端伺服器或外部圖片資源，
+            將 HTML5 介面、CSS3 動畫、純原生內嵌 SVG 繪圖、四款休閒小遊戲與 LocalStorage 離線進度存檔全數封裝於單一
+            <code>index.html</code> 檔案中，經六個主要版本迭代至 V6.0 並部署於 GitHub Pages。
+          </p>
+        </div>
+
+        <div class="col-lg-4 d-flex flex-column gap-2">
+          <a href="https://fannno.github.io/hatchabit/"
+            target="_blank" rel="noopener noreferrer"
+            class="btn btn-dark">
+            <i class="bi bi-window-fullscreen me-2"></i>試玩線上系統（GitHub Pages）
+          </a>
+          <a href="https://github.com/Fannno/hatchabit"
+            target="_blank" rel="noopener noreferrer"
+            class="btn btn-outline-dark">
+            <i class="bi bi-github me-2"></i>查看 GitHub Repository
+          </a>
+          <a href="../index.html#portfolio" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left me-2"></i>返回專案作品列表
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2 & 3. 專案背景與開發動機、專案目標 -->
+  <section class="project-section bg-white">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h2 class="h4 section-heading">專案背景與開發動機</h2>
+          <div class="info-panel p-4 h-100">
+            <p class="text-secondary mb-3">
+              本專案起源於生成式 AI 協作網頁開發實作練習，探索如何在不依賴 React、Vue 等前端框架與外部圖庫的情況下，
+              透過嚴謹的規格設計與多輪迭代，僅以單一 HTML 檔案建構出結構完整、數值平衡且具備長期可玩性的互動網頁遊戲。
+            </p>
+            <p class="text-secondary mb-0">
+              為了讓玩家在手機與電腦瀏覽器開啟網頁即可立即遊玩且不必擔心圖檔遺失或伺服器停機，
+              全站視覺元素皆改採程式繪製的原生 SVG，並結合瀏覽器端時間戳記計算實現真實的養成節奏。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <h2 class="h4 section-heading">專案目標</h2>
+          <div class="info-panel p-4 h-100">
+            <ul class="list-unstyled text-secondary mb-0 d-flex flex-column gap-2">
+              <li>
+                <i class="bi bi-check-circle-fill text-dark me-2"></i>
+                <strong>極致輕量與零外部依賴：</strong>以單一 <code>index.html</code> 整合所有邏輯與 SVG 向量繪圖，達到秒開即玩與零破圖風險。
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-dark me-2"></i>
+                <strong>建立完整養成經濟閉環：</strong>結合日常照護、體力消耗、小遊戲賺取金幣、商城購買食物與家具佈置。
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-dark me-2"></i>
+                <strong>兼具真實時間感與防棄養機制：</strong>實作離線時間差衰退補算，同時提供消耗背包庫存的保母照護模式。
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-dark me-2"></i>
+                <strong>跨裝置一致操作體驗：</strong>支援桌面鍵盤／滑鼠與行動裝置觸控操作，並確保版本升級時舊存檔平滑遷移。
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 核心功能與特色 -->
+  <section class="project-section bg-light">
+    <div class="container">
+      <h2 class="h4 section-heading">核心功能與特色</h2>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-heart me-2"></i>6 種角色與 6 種隨機個性</h3>
+            <p class="text-muted small mb-0">
+              提供貓、狗、企鵝、狐狸、史萊姆、小怪獸共 6 種角色，歷經蛋、幼年（LV.2）、青年（LV.10）到成年（LV.20）成長外觀；
+              並賦予貪吃、愛玩、愛睡、愛乾淨、黏人、調皮 6 種影響衰退速率與互動加成的個性。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-house-door me-2"></i>5 間獨立房間與主題佈置</h3>
+            <p class="text-muted small mb-0">
+              最多可擴建解鎖 5 間獨立房間分別飼養不同寵物，並可於商城購買溫馨、森林、甜點、星空、海洋 5 款主題小屋與各式 SVG 家具。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-controller me-2"></i>4 款內建休閒小遊戲</h3>
+            <p class="text-muted small mb-0">
+              內建「接接樂」、「記憶翻牌」、「反應點擊」與「節奏拍拍」，消耗寵物體力遊玩並依星級得分結算金幣與心情值。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-clock-history me-2"></i>保母照護與離線結算</h3>
+            <p class="text-muted small mb-0">
+              開啟保母模式後每 5 分鐘自動檢查數值並消耗背包食物庫存（飼料、蘋果、飯糰、布丁、蛋糕）進行回補；關閉網頁後亦會依時間差結算狀態。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-award me-2"></i>8 項終生成就與 5 款紀念品</h3>
+            <p class="text-muted small mb-0">
+              包含孵化大師、成長見證、豪宅主人等 8 項里程碑成就，親密度達標時寵物會贈送成長相片、幸運羽毛、精緻貝殼、玩偶徽章與星之碎片。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-hdd me-2"></i>存檔匯入匯出與版本遷移</h3>
+            <p class="text-muted small mb-0">
+              所有遊戲進度以 JSON 儲存於 LocalStorage（<code>hatchabit_save_data</code>），支援手動匯入匯出備份與舊版結構自動補齊升級。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 系統架構與資料處理流程 -->
+  <section class="project-section bg-white">
+    <div class="container">
+      <h2 class="h4 section-heading">系統架構與單一檔案模組設計</h2>
+      <p class="text-secondary mb-4">
+        全站雖封裝於單一 <code>index.html</code> 檔案中，但內部邏輯嚴格劃分為表現層、狀態機層、小遊戲控制器與 LocalStorage 持久化層。
+      </p>
+
+      <div class="arch-diagram-box mb-4">
+        <svg viewBox="0 0 820 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hatchabit 單一檔案純前端架構圖">
+          <defs>
+            <marker id="hb-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#495057"/>
+            </marker>
+          </defs>
+
+          <!-- 外層容器 -->
+          <rect x="16" y="16" width="788" height="248" rx="10" fill="#ffffff" stroke="#212529" stroke-width="1.5"/>
+          <text x="34" y="42" font-size="13.5" font-weight="700" fill="#212529">index.html（單一檔案純前端架構 — 無外部框架與圖檔依賴）</text>
+
+          <!-- 左：UI & SVG -->
+          <rect x="34" y="64" width="220" height="176" rx="8" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1.5"/>
+          <text x="144" y="92" text-anchor="middle" font-size="13.5" font-weight="700" fill="#212529">UI 視圖與 Inline SVG 層</text>
+          <text x="144" y="118" text-anchor="middle" font-size="11.5" fill="#495057">主房間舞台與狀態儀表板</text>
+          <text x="144" y="138" text-anchor="middle" font-size="11.5" fill="#495057">6 寵物多階段 SVG 與表情</text>
+          <text x="144" y="158" text-anchor="middle" font-size="11.5" fill="#495057">5 款小屋主題與家具向量圖</text>
+          <text x="144" y="178" text-anchor="middle" font-size="11.5" fill="#495057">CSS3 Keyframe 互動動畫</text>
+          <text x="144" y="218" text-anchor="middle" font-size="11" fill="#6c757d">局部節點更新防閃爍</text>
+
+          <line x1="254" y1="152" x2="294" y2="152" stroke="#495057" stroke-width="1.5" marker-end="url(#hb-arrow)"/>
+
+          <!-- 中：狀態機與遊戲 -->
+          <rect x="300" y="64" width="236" height="176" rx="8" fill="#ffffff" stroke="#212529" stroke-width="1.5"/>
+          <text x="418" y="92" text-anchor="middle" font-size="13.5" font-weight="700" fill="#212529">狀態機與遊戲邏輯層</text>
+          <text x="418" y="118" text-anchor="middle" font-size="11.5" fill="#495057">互動冷卻鎖（防連點洗分）</text>
+          <text x="418" y="138" text-anchor="middle" font-size="11.5" fill="#495057">Date.now() 離線時間差衰退</text>
+          <text x="418" y="158" text-anchor="middle" font-size="11.5" fill="#495057">保母模式（每 5 分鐘查庫存）</text>
+          <text x="418" y="178" text-anchor="middle" font-size="11.5" fill="#495057">4 款小遊戲與鍵鼠觸控同步</text>
+          <text x="418" y="218" text-anchor="middle" font-size="11" fill="#6c757d">8 項成就與紀念品觸發判定</text>
+
+          <line x1="536" y1="152" x2="576" y2="152" stroke="#495057" stroke-width="1.5" marker-end="url(#hb-arrow)"/>
+
+          <!-- 右：LocalStorage -->
+          <rect x="582" y="64" width="204" height="176" rx="8" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1.5"/>
+          <text x="684" y="92" text-anchor="middle" font-size="13.5" font-weight="700" fill="#212529">LocalStorage 持久化層</text>
+          <text x="684" y="118" text-anchor="middle" font-size="11.5" fill="#495057">Key: hatchabit_save_data</text>
+          <text x="684" y="138" text-anchor="middle" font-size="11.5" fill="#495057">5 間房間與寵物陣列 JSON</text>
+          <text x="684" y="158" text-anchor="middle" font-size="11.5" fill="#495057">金幣、食物與家具庫存</text>
+          <text x="684" y="178" text-anchor="middle" font-size="11.5" fill="#495057">跨版本資料遷移保護</text>
+          <text x="684" y="218" text-anchor="middle" font-size="11" fill="#6c757d">JSON 匯入 / 匯出備份</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 使用技術與工具 -->
+  <section class="project-section bg-light">
+    <div class="container">
+      <h2 class="h4 section-heading">使用技術與工具</h2>
+
+      <div class="table-responsive info-panel p-3">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              <th style="width: 22%;">類別</th>
+              <th style="width: 28%;">使用技術</th>
+              <th>實作方式與用途</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="fw-semibold">前端結構與樣式</td>
+              <td>HTML5、CSS3</td>
+              <td>單頁式響應式佈局、彈出視窗與 CSS3 Keyframe 角色互動動畫</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">向量圖形繪製</td>
+              <td>原生 Inline SVG</td>
+              <td>以 <code>&lt;svg&gt;</code> 路徑繪製 6 種寵物各階段外觀、5 款房間背景、家具、食物與紀念品</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">程式邏輯</td>
+              <td>Vanilla JavaScript (ES6+)</td>
+              <td>零外部套件實作生理數值衰退、隨機個性加權、小遊戲迴圈與成就判定</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">資料保存</td>
+              <td>Web Storage API (<code>localStorage</code>)</td>
+              <td>保存多房間進度、庫存與離線時間戳記，並具備跨版本結構合併機制</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">部署與開發流程</td>
+              <td>Git、GitHub Pages、Vibe Coding</td>
+              <td>規格驅動六階段迭代開發（V1.0 至 V6.0）並託管於靜態網頁平台</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. 開發過程與實作方式 -->
+  <section class="project-section bg-white">
+    <div class="container">
+      <h2 class="h4 section-heading">開發過程與版本迭代歷程（V1.0 – V6.0）</h2>
+
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-4">
+          <div class="info-panel p-3 h-100">
+            <div class="fw-bold small text-dark mb-1">V1.0 – V2.0：核心骨架與 SVG 重構</div>
+            <p class="small text-muted mb-0">
+              建立孵化與基本照顧數值系統及初始 LocalStorage 存檔；第二版修正行動端觸控衝突，全面重構原生 SVG 角色外觀並加入等級成長階段。
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="info-panel p-3 h-100">
+            <div class="fw-bold small text-dark mb-1">V3.0 – V4.0：個性系統與小遊戲中心</div>
+            <p class="small text-muted mb-0">
+              確立 Hatchabit 視覺，導入 6 種隨機個性造成差異化消耗速率；隨後實裝 4 款休閒小遊戲建立體力換金幣的經濟循環。
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="info-panel p-3 h-100">
+            <div class="fw-bold small text-dark mb-1">V5.0 – V6.0：多房間、保母與存檔遷移</div>
+            <p class="small text-muted mb-0">
+              擴充至 5 間獨立房間與 5 款主題家具、實作防連點冷卻、離線時間差補算、綁定背包食物的保母模式、8 項成就與 5 款紀念品圖鑑。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. 遇到的問題及解決方式 -->
+  <section class="project-section bg-light">
+    <div class="container">
+      <h2 class="h4 section-heading">遇到的問題及解決方式</h2>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="troubleshoot-card">
+            <h3 class="h6 fw-bold mb-2">1. 跨裝置觸控事件衝突與預設滾動干擾</h3>
+            <p class="small text-muted mb-2">
+              <strong>問題：</strong>在手機瀏覽器遊玩「接接樂」或「反應點擊」時，<code>touchstart</code> 易與頁面捲動或 <code>click</code> 事件重複觸發導致延遲。
+            </p>
+            <p class="small text-secondary mb-0">
+              <strong>解法：</strong>統一事件監聽介面並在遊戲容器內阻斷預設捲動行為，確保桌機鍵鼠與手機觸控靈敏度一致。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="troubleshoot-card">
+            <h3 class="h6 fw-bold mb-2">2. 關閉網頁期間數值停止與連點洗分漏洞</h3>
+            <p class="small text-muted mb-2">
+              <strong>問題：</strong>早期僅依賴網頁開啟時的計時器，關閉分頁即停止計算；快速連點餵食按鈕會短時間刷滿經驗值。
+            </p>
+            <p class="small text-secondary mb-0">
+              <strong>解法：</strong>存檔內加入 <code>Date.now()</code> 時間戳記於重開時依比例補算離線衰退，並為日常互動加入冷卻鎖定計時器。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="troubleshoot-card">
+            <h3 class="h6 fw-bold mb-2">3. 保母照護模式的經濟平衡校正</h3>
+            <p class="small text-muted mb-2">
+              <strong>問題：</strong>若保母自動回補不消耗資源或直接扣除金幣，會破壞購買食物的遊戲設計並產生數值漏洞。
+            </p>
+            <p class="small text-secondary mb-0">
+              <strong>解法：</strong>將自動餵食邏輯嚴格綁定背包內的食物庫存（飼料、蘋果、飯糰、布丁、蛋糕），必須實際檢查並扣除庫存才能執行回補。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="troubleshoot-card">
+            <h3 class="h6 fw-bold mb-2">4. 舊版存檔欄位缺失與 SVG 整區重繪閃爍</h3>
+            <p class="small text-muted mb-2">
+              <strong>問題：</strong>V6.0 新增多房間與成就欄位後讀取舊版 JSON 會產生 <code>undefined</code> 錯誤；頻繁重建整個 SVG DOM 會造成畫面閃爍。
+            </p>
+            <p class="small text-secondary mb-0">
+              <strong>解法：</strong>載入存檔時執行版本檢驗與預設欄位深度合併（Data Migration），並將靜態背景與動態表情分離，僅局部更新變動屬性。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. 個人負責的工作與實際貢獻 -->
+  <section class="project-section bg-white">
+    <div class="container">
+      <h2 class="h4 section-heading">個人負責的工作與實際貢獻</h2>
+
+      <div class="role-boundary-box role-personal">
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+          <h3 class="h6 fw-bold mb-0"><i class="bi bi-person-check me-2"></i>個人獨立完成專案（Solo Project）</h3>
+          <span class="badge bg-dark">100% 獨立企劃、設計與除錯</span>
+        </div>
+        <ul class="list-unstyled text-secondary small mb-0 d-flex flex-column gap-2">
+          <li><i class="bi bi-check2 text-dark me-2"></i><strong>產品企劃與數值規格：</strong>獨立設計 V1.0 至 V6.0 的養成規則、6 種個性參數、5 間主題房間、4 款小遊戲與 8 項成就圖鑑。</li>
+          <li><i class="bi bi-check2 text-dark me-2"></i><strong>架構引導與無依賴實作：</strong>主導單一檔案模組化架構與純原生 Inline SVG 素材規範，透過規格驅動與 AI 協作完成開發。</li>
+          <li><i class="bi bi-check2 text-dark me-2"></i><strong>跨裝置測試與邏輯除錯：</strong>親自進行實機測試，排查並修正觸控衝突、離線時間差補算、保母庫存綁定與 LocalStorage 存檔遷移問題。</li>
+          <li><i class="bi bi-check2 text-dark me-2"></i><strong>專案部署與文件整理：</strong>撰寫 README 版本演進紀錄並部署至 GitHub Pages。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. 最終成果及展示畫面 -->
+  <section class="project-section bg-light">
+    <div class="container">
+      <h2 class="h4 section-heading">最終成果及展示畫面</h2>
+
+      <div class="row g-3 mb-4">
+        <div class="col-md-4">
+          <div class="info-panel p-3 text-center h-100">
+            <div class="fw-bold fs-5 text-dark">V6.0 完整發布</div>
+            <div class="small text-muted">GitHub Pages 免安裝即時遊玩</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-panel p-3 text-center h-100">
+            <div class="fw-bold fs-5 text-dark">6 角色 / 5 房間 / 4 遊戲</div>
+            <div class="small text-muted">完整養成、佈置與收集系統</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-panel p-3 text-center h-100">
+            <div class="fw-bold fs-5 text-dark">零外部資源依賴</div>
+            <div class="small text-muted">單一 index.html 封裝純原生 SVG 與 JS</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <figure class="screenshot-figure">
+            <div class="screenshot-placeholder">
+              <i class="bi bi-house-heart fs-2 mb-2"></i>
+              <div class="fw-semibold small text-dark mb-1">主房間養成與主題佈置（預留畫面）</div>
+              <div class="small">待補入實機截圖：<span class="code-path">assets/images/hatchabit/room-main.png</span></div>
+            </div>
+            <figcaption class="small text-muted mt-2 text-center">
+              展示電子寵物原生 SVG 動畫、生理數值儀表板、房間切換列與日常照顧選單
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="col-md-6">
+          <figure class="screenshot-figure">
+            <div class="screenshot-placeholder">
+              <i class="bi bi-joystick fs-2 mb-2"></i>
+              <div class="fw-semibold small text-dark mb-1">小遊戲中心與紀念品圖鑑（預留畫面）</div>
+              <div class="small">待補入實機截圖：<span class="code-path">assets/images/hatchabit/minigames.png</span></div>
+            </div>
+            <figcaption class="small text-muted mt-2 text-center">
+              展示四款內建休閒小遊戲畫面、成就勳章列表與親密度紀念品陳列室
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- 底部專案導覽 -->
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mt-5 pt-4 border-top">
+        <a href="qwq.html" class="btn btn-outline-dark">
+          <i class="bi bi-arrow-left me-2"></i>上一個專案：QWQ 監規餘
+        </a>
+        <a href="../index.html#portfolio" class="btn btn-dark">
+          <i class="bi bi-grid me-2"></i>返回專案作品
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <div class="mb-3">
+        <a href="https://github.com/Fannno"
+          target="_blank" rel="noopener noreferrer"
+          class="text-white mx-3 text-decoration-none"
+          aria-label="GitHub 個人頁面">
+          <i class="bi bi-github fs-4"></i>
+        </a>
+      </div>
+
+      <small>&copy; 2026 Fannno. All Rights Reserved.</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

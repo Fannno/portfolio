@@ -9,83 +9,7 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
-
-  <style>
-    section {
-      padding: 60px 0;
-    }
-
-    .hero-bg {
-      background-color: #f8f9fa;
-    }
-
-    .card {
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    /* 技術標籤代表色 */
-    .badge-swift {
-      background-color: #F05138;
-      color: #fff;
-    }
-
-    .badge-dotnet {
-      background-color: #512BD4;
-      color: #fff;
-    }
-
-    .badge-sql {
-      background-color: #4479A1;
-      color: #fff;
-    }
-
-    .badge-javascript {
-      background-color: #F7DF1E;
-      color: #222;
-    }
-
-    .badge-html {
-      background-color: #A63D40;
-      color: #fff;
-    }
-
-    .badge-java {
-      background-color: #E76F00;
-      color: #fff;
-    }
-
-    /* 手機版工作與學歷日期排版 */
-    .timeline-heading {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 4px 12px;
-    }
-
-    .timeline-date {
-      white-space: nowrap;
-    }
-
-    @media (max-width: 576px) {
-      section {
-        padding: 45px 0;
-      }
-
-      .timeline-date {
-        font-size: 0.8rem;
-      }
-
-      .project-badges {
-        line-height: 2.2;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -298,13 +222,14 @@
   <!-- 專案作品 -->
   <section id="portfolio" class="bg-white">
     <div class="container">
-      <h2 class="text-center mb-5 fw-bold">專案作品</h2>
+      <h2 class="text-center mb-3 fw-bold">專案作品</h2>
+      <p class="text-center text-muted mb-5">點擊卡片可檢視各專案的系統架構、實作細節與個人貢獻</p>
 
       <div class="row g-4">
 
         <!-- SteadyHope -->
         <div class="col-lg-4 col-md-6">
-          <div class="card h-100 border-0 shadow-sm">
+          <div class="card h-100 border-0 shadow-sm project-card">
 
             <div class="card-header bg-transparent border-0 pt-4 px-4 project-badges">
               <span class="badge badge-swift">Swift</span>
@@ -313,17 +238,25 @@
               <span class="badge bg-success">競賽第三名</span>
             </div>
 
-            <div class="card-body px-4">
-              <h5 class="card-title fw-bold">SteadyHope 帕金森氏症照護輔助系統</h5>
+            <div class="card-body px-4 d-flex flex-column">
+              <h5 class="card-title fw-bold">
+                <a href="projects/steadyhope.html" class="text-decoration-none text-dark stretched-link">
+                  SteadyHope 帕金森氏症照護輔助系統
+                </a>
+              </h5>
 
-              <p class="card-text text-muted">
+              <p class="card-text text-muted flex-grow-1">
                 帕金森氏症照護輔助 iOS App，使用 Swift 開發並採用 MVVM 架構，
-                涵蓋穿戴式裝置資料整合、用藥管理及日常健康紀錄等功能。
-                參與 App 開發，並獲得淡江大學資管系專題製作競賽第三名。
+                涵蓋穿戴式裝置資料整合、FFT/PSD 震顫頻譜分析、用藥管理及 PDF 醫療報告匯出。
+                負責 iOS 端開發，獲得淡江大學資管系專題製作競賽第三名。
               </p>
+
+              <div class="project-card-action text-dark small fw-semibold mt-2">
+                查看專案詳情 <i class="bi bi-arrow-right ms-1"></i>
+              </div>
             </div>
 
-            <div class="card-footer bg-transparent border-0 px-4 pb-4">
+            <div class="card-footer bg-transparent border-0 px-4 pb-4 project-card-links">
               <a href="https://github.com/Fannno/SteadyHope-iOS"
                 target="_blank" rel="noopener noreferrer"
                 class="btn btn-dark w-100">
@@ -334,29 +267,36 @@
           </div>
         </div>
 
-        <!-- QWQ -->
+        <!-- QWQ 監規餘 -->
         <div class="col-lg-4 col-md-6">
-          <div class="card h-100 border-0 shadow-sm">
+          <div class="card h-100 border-0 shadow-sm project-card">
 
             <div class="card-header bg-transparent border-0 pt-4 px-4 project-badges">
-              <span class="badge badge-dotnet">C# / .NET MVC</span>
-              <span class="badge badge-sql">SQL Server</span>
-              <span class="badge badge-javascript">JavaScript</span>
-              <span class="badge bg-secondary">持續開發中</span>
+              <span class="badge badge-react">React</span>
+              <span class="badge badge-node">Node.js / Express</span>
+              <span class="badge badge-mongodb">MongoDB</span>
+              <span class="badge bg-secondary">規劃 C#/.NET 重構</span>
             </div>
 
-            <div class="card-body px-4">
-              <h5 class="card-title fw-bold">QWQ 規餘記</h5>
+            <div class="card-body px-4 d-flex flex-column">
+              <h5 class="card-title fw-bold">
+                <a href="projects/qwq.html" class="text-decoration-none text-dark stretched-link">
+                  QWQ 監規餘
+                </a>
+              </h5>
               <p class="text-muted small mb-2">Quick Wallet Query</p>
 
-              <p class="card-text text-muted">
-                個人收支管理系統，包含收支紀錄、預算管理與財務資訊查詢。
-                使用 C#/.NET MVC 建構系統架構，並以 SQL Server
-                處理資料庫操作，目前持續完善系統功能。
+              <p class="card-text text-muted flex-grow-1">
+                個人收支管理與日常記帳系統，目前版本採 MERN Stack 前後端分離實作，
+                具備 JWT 身分驗證、日期分組小計與跨裝置同步；後續規劃重構為 C# / .NET MVC 與 SQL Server 架構。
               </p>
+
+              <div class="project-card-action text-dark small fw-semibold mt-2">
+                查看專案詳情 <i class="bi bi-arrow-right ms-1"></i>
+              </div>
             </div>
 
-            <div class="card-footer bg-transparent border-0 px-4 pb-4">
+            <div class="card-footer bg-transparent border-0 px-4 pb-4 project-card-links">
               <a href="https://github.com/Fannno/114_web_endterm_project"
                 target="_blank" rel="noopener noreferrer"
                 class="btn btn-outline-dark w-100">
@@ -369,26 +309,34 @@
 
         <!-- Hatchabit -->
         <div class="col-lg-4 col-md-6">
-          <div class="card h-100 border-0 shadow-sm">
+          <div class="card h-100 border-0 shadow-sm project-card">
 
             <div class="card-header bg-transparent border-0 pt-4 px-4 project-badges">
               <span class="badge badge-html">HTML/CSS</span>
               <span class="badge badge-javascript">JavaScript</span>
-              <span class="badge bg-secondary">Vibe Coding</span>
+              <span class="badge bg-secondary">V6.0</span>
+              <span class="badge bg-dark">單一檔案架構</span>
             </div>
 
-            <div class="card-body px-4">
-              <h5 class="card-title fw-bold">Hatchabit</h5>
+            <div class="card-body px-4 d-flex flex-column">
+              <h5 class="card-title fw-bold">
+                <a href="projects/hatchabit.html" class="text-decoration-none text-dark stretched-link">
+                  Hatchabit
+                </a>
+              </h5>
               <p class="text-muted small mb-2">電子寵物養成 Web App</p>
 
-              <p class="card-text text-muted">
-                以日常照顧與角色成長為主題的互動網頁，包含餵食、洗澡、玩耍、
-                房間佈置與小遊戲。透過生成式 AI 輔助開發，反覆測試並調整功能、
-                操作流程與遊戲機制。
+              <p class="card-text text-muted flex-grow-1">
+                以日常照顧與角色成長為主題的純前端互動網頁，包含 6 種隨機個性、5 間主題房間、
+                4 款小遊戲與保母照護模式。以純原生 Inline SVG 繪製素材並透過 LocalStorage 保存遊戲進度。
               </p>
+
+              <div class="project-card-action text-dark small fw-semibold mt-2">
+                查看專案詳情 <i class="bi bi-arrow-right ms-1"></i>
+              </div>
             </div>
 
-            <div class="card-footer bg-transparent border-0 px-4 pb-4">
+            <div class="card-footer bg-transparent border-0 px-4 pb-4 project-card-links">
               <a href="https://fannno.github.io/hatchabit/"
                 target="_blank" rel="noopener noreferrer"
                 class="btn btn-outline-dark w-100">
@@ -399,7 +347,7 @@
                 <a href="https://github.com/Fannno/hatchabit"
                   target="_blank" rel="noopener noreferrer"
                   class="text-secondary text-decoration-none small">
-                  <i class="bi bi-github"></i> 查看程式碼
+                  <i class="bi bi-github me-1"></i>查看程式碼
                 </a>
               </div>
             </div>
@@ -440,6 +388,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>

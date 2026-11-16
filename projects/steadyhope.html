@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SteadyHope 帕金森氏症照護輔助系統 | 樊柔妤作品集</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- 導覽列 -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="../index.html#home">Fan's Portfolio</a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html#home">首頁</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#about">關於我</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#skills">專業技能</a></li>
+          <li class="nav-item"><a class="nav-link active" href="../index.html#portfolio">專案作品</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#contact">聯絡方式</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. 專案名稱、簡介與外部連結 -->
+  <header class="project-hero">
+    <div class="container">
+      <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb mb-0 small">
+          <li class="breadcrumb-item"><a href="../index.html#portfolio" class="text-decoration-none text-secondary">專案作品</a></li>
+          <li class="breadcrumb-item active text-dark" aria-current="page">SteadyHope</li>
+        </ol>
+      </nav>
+
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <div class="project-badges mb-3">
+            <span class="badge badge-swift">Swift</span>
+            <span class="badge bg-secondary">SwiftUI</span>
+            <span class="badge bg-info text-dark">MVVM</span>
+            <span class="badge bg-dark">CoreBluetooth</span>
+            <span class="badge bg-dark">Accelerate (vDSP)</span>
+            <span class="badge bg-success">資管系專題競賽第三名</span>
+          </div>
+
+          <h1 class="fw-bold mb-2">SteadyHope 帕金森氏症照護輔助系統</h1>
+          <p class="text-muted mb-3">iOS 智慧遠距震顫監測與照護管理應用程式（Version 1.0.0）</p>
+          <p class="lead fs-6 text-secondary mb-0">
+            專為帕金森氏症與手部震顫患者設計的 iOS 輔助系統。透過低功耗藍牙（BLE）接收穿戴式智慧手套
+            100 Hz 感測器數據，在手機端即時進行 FFT 與功率頻譜密度（PSD）分析，並結合離線優先儲存、
+            用藥提醒、照護者遠距配對與臨床 PDF 醫療報告匯出功能，輔助醫師評估日常症狀波動。
+          </p>
+        </div>
+
+        <div class="col-lg-4 d-flex flex-column gap-2">
+          <a href="https://github.com/Fannno/SteadyHope-iOS"
+            target="_blank" rel="noopener noreferrer"
+            class="btn btn-dark">
+            <i class="bi bi-github me-2"></i>查看 GitHub Repository
+          </a>
+          <a href="../index.html#portfolio" class="btn btn-outline-dark">
+            <i class="bi bi-arrow-left me-2"></i>返回專案作品列表
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2 & 3. 專案背景與開發動機、專案目標 -->
+  <section class="project-section bg-white">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h2 class="h4 section-heading">專案背景與開發動機</h2>
+          <div class="info-panel p-4 h-100">
+            <p class="text-secondary mb-3">
+              帕金森氏症患者的肢體震顫具有高度時變性，容易受到用藥週期、情緒與疲勞程度影響。
+              傳統門診僅能透過醫師短短數分鐘的現場觀察與主觀量表進行評估，難以完整掌握患者在居家生活中的真實症狀變化。
+            </p>
+            <p class="text-secondary mb-0">
+              現有市售穿戴裝置多專注於步數或心率統計，缺乏針對手部三軸角速度與加速度的高頻率取樣與頻譜分析工具，
+              家屬與患者之間也缺乏整合用藥狀態與震顫紀錄的同步介面，因此促使團隊規劃這套結合感測硬體與 iOS 應用的輔助系統。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <h2 class="h4 section-heading">專案目標</h2>
+          <div class="info-panel p-4 h-100">
+            <ul class="list-unstyled text-secondary mb-0 d-flex flex-column gap-2">
+              <li>
+                <i class="bi bi-check-circle-fill text-dark me-2"></i>
+                <strong>量化日常震顫特徵：</strong>以 100 Hz 接收穿戴手套 IMU 資料並在裝置端執行 FFT/PSD 分析，鎖定 4–6 Hz 典型震顫頻帶。
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-dark me-2"></i>
+                <strong>建立離線優先紀錄機制：</strong>在無網路環境下透過 SwiftData 完整保存量測與用藥資料，連線後壓縮同步至後端。
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-dark me-2"></i>
+                <strong>支援家庭照護協作：</strong>提供個案與照護者雙向授權綁定，同步追蹤用藥打卡與異常震顫時間點。
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-dark me-2"></i>
+                <strong>產出臨床可用醫療報告：</strong>於手機端將長期趨勢與頻譜圖表轉換為向量級 PDF 文件，縮短門診溝通成本。
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 核心功能與特色 -->
+  <section class="project-section bg-light">
+    <div class="container">
+      <h2 class="h4 section-heading">核心功能與特色</h2>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-bluetooth me-2"></i>BLE 手套連線與封包校準</h3>
+            <p class="text-muted small mb-0">
+              封裝 CoreBluetooth 掃描與訂閱流程，即時接收 20-byte 二進位 IMU 封包與手套電量，
+              並透過 Sequence 連續性與硬體 Tick 差值檢驗確保取樣品質。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-activity me-2"></i>裝置端即時 FFT / PSD 分析</h3>
+            <p class="text-muted small mb-0">
+              採用 Apple Accelerate (vDSP) 框架在手機端執行去均值、Hann Window 視窗化與
+              400 點實數快速傅立葉變換，計算三軸單邊功率頻譜密度與 RMS 強度。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-graph-up me-2"></i>即時波形與儀表板視覺化</h3>
+            <p class="text-muted small mb-0">
+              透過 Swift Charts 繪製三軸即時感測器波形與 PSD 頻譜分佈，並在首頁儀表板顯示手套電量、
+              連線狀態與最近一次震顫量測時間戳記。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-database me-2"></i>SwiftData 離線儲存與壓縮同步</h3>
+            <p class="text-muted small mb-0">
+              所有原始切片、震顫特徵、用藥紀錄與症狀日誌優先寫入本地 SwiftData；
+              恢復網路後以 Zlib 壓縮高頻感測封包並透過 async/await 批次同步至 Vapor 後端。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-file-earmark-pdf me-2"></i>向量級 PDF 醫療報告匯出</h3>
+            <p class="text-muted small mb-0">
+              將長期 RMS 趨勢與頻譜數據轉為內嵌 SVG 向量圖形注入 HTML 樣板，透過 WebKit 與
+              UIPrintPageRenderer 產出無失真分頁 PDF 報告，方便門診分享。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-people me-2"></i>用藥提醒與照護者授權綁定</h3>
+            <p class="text-muted small mb-0">
+              整合每日用藥排程打卡與個案／照護者雙向綁定權限控管，讓家屬能遠距追蹤用藥狀況並檢視後端生成的診詢摘要。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 系統架構與資料處理流程 -->
+  <section class="project-section bg-white">
+    <div class="container">
+      <h2 class="h4 section-heading">系統架構與訊號處理流程</h2>
+      <p class="text-secondary mb-4">
+        iOS 端採 <strong>SwiftUI + MVVM + Service Layer</strong> 分層架構，將 BLE 通訊、vDSP 訊號處理、SwiftData 持久化與網路同步完全解耦。
+      </p>
+
+      <div class="arch-diagram-box mb-4">
+        <svg viewBox="0 0 820 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SteadyHope 系統架構與訊號處理流程圖">
+          <defs>
+            <marker id="sh-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#495057"/>
+            </marker>
+          </defs>
+
+          <!-- 上層：即時訊號管線 -->
+          <rect x="20" y="24" width="170" height="74" rx="8" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1.5"/>
+          <text x="105" y="54" text-anchor="middle" font-size="14" font-weight="700" fill="#212529">BLE 智慧手套</text>
+          <text x="105" y="76" text-anchor="middle" font-size="12" fill="#6c757d">100 Hz / 20-byte IMU</text>
+
+          <line x1="190" y1="61" x2="226" y2="61" stroke="#495057" stroke-width="1.5" marker-end="url(#sh-arrow)"/>
+
+          <rect x="232" y="24" width="175" height="74" rx="8" fill="#ffffff" stroke="#212529" stroke-width="1.5"/>
+          <text x="319" y="54" text-anchor="middle" font-size="14" font-weight="700" fill="#212529">封包解析與品質校準</text>
+          <text x="319" y="76" text-anchor="middle" font-size="11.5" fill="#6c757d">PacketParser / Seq Check</text>
+
+          <line x1="407" y1="61" x2="443" y2="61" stroke="#495057" stroke-width="1.5" marker-end="url(#sh-arrow)"/>
+
+          <rect x="449" y="24" width="175" height="74" rx="8" fill="#ffffff" stroke="#212529" stroke-width="2"/>
+          <text x="536" y="54" text-anchor="middle" font-size="14" font-weight="700" fill="#212529">vDSP 頻譜分析管線</text>
+          <text x="536" y="76" text-anchor="middle" font-size="11.5" fill="#6c757d">Hann + 400pt Real FFT</text>
+
+          <line x1="624" y1="61" x2="660" y2="61" stroke="#495057" stroke-width="1.5" marker-end="url(#sh-arrow)"/>
+
+          <rect x="666" y="24" width="134" height="74" rx="8" fill="#212529" stroke="#212529" stroke-width="1.5"/>
+          <text x="733" y="54" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">震顫指標輸出</text>
+          <text x="733" y="76" text-anchor="middle" font-size="11.5" fill="#dee2e6">PSD / RMS / 等級</text>
+
+          <!-- 垂直向下分流 -->
+          <line x1="733" y1="98" x2="733" y2="145" stroke="#495057" stroke-width="1.5"/>
+          <line x1="120" y1="145" x2="733" y2="145" stroke="#495057" stroke-width="1.5"/>
+          <line x1="120" y1="145" x2="120" y2="180" stroke="#495057" stroke-width="1.5" marker-end="url(#sh-arrow)"/>
+          <line x1="410" y1="145" x2="410" y2="180" stroke="#495057" stroke-width="1.5" marker-end="url(#sh-arrow)"/>
+          <line x1="690" y1="145" x2="690" y2="180" stroke="#495057" stroke-width="1.5" marker-end="url(#sh-arrow)"/>
+
+          <!-- 下層：呈現、儲存、同步 -->
+          <rect x="20" y="186" width="200" height="84" rx="8" fill="#ffffff" stroke="#adb5bd" stroke-width="1.5"/>
+          <text x="120" y="216" text-anchor="middle" font-size="14" font-weight="700" fill="#212529">SwiftUI &amp; Swift Charts</text>
+          <text x="120" y="238" text-anchor="middle" font-size="11.5" fill="#6c757d">儀表板 / 即時三軸波形</text>
+          <text x="120" y="256" text-anchor="middle" font-size="11.5" fill="#6c757d">PSD 功率頻譜分佈圖</text>
+
+          <rect x="300" y="186" width="220" height="84" rx="8" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1.5"/>
+          <text x="410" y="216" text-anchor="middle" font-size="14" font-weight="700" fill="#212529">SwiftData 本地資料庫</text>
+          <text x="410" y="238" text-anchor="middle" font-size="11.5" fill="#6c757d">背景 Actor 批次寫入儲存</text>
+          <text x="410" y="256" text-anchor="middle" font-size="11.5" fill="#6c757d">HTML + SVG 轉臨床 PDF</text>
+
+          <rect x="580" y="186" width="220" height="84" rx="8" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1.5"/>
+          <text x="690" y="216" text-anchor="middle" font-size="14" font-weight="700" fill="#212529">Vapor 雲端 API 同步</text>
+          <text x="690" y="238" text-anchor="middle" font-size="11.5" fill="#6c757d">Zlib 壓縮上傳 / JWT 認證</text>
+          <text x="690" y="256" text-anchor="middle" font-size="11.5" fill="#6c757d">照護者綁定與 AI 摘要接收</text>
+        </svg>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="info-panel-muted p-3 h-100">
+            <strong class="d-block mb-1">View / ViewModel 層</strong>
+            <span class="small text-muted">管理 UI 狀態與使用者互動，強制透過 <code>@MainActor</code> 節流更新圖表與電量指標。</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-panel-muted p-3 h-100">
+            <strong class="d-block mb-1">Service Layer（BLE / DSP / PDF）</strong>
+            <span class="small text-muted">隔離高頻感測回呼、Accelerate 數學運算、Zlib 壓縮與 WebKit 報告算繪。</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-panel-muted p-3 h-100">
+            <strong class="d-block mb-1">Local Model vs. DTO</strong>
+            <span class="small text-muted">本地 <code>@Model</code> 與網路 <code>Codable DTO</code> 分離，避免資料庫綱要與 API 耦合。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 使用技術與工具 -->
+  <section class="project-section bg-light">
+    <div class="container">
+      <h2 class="h4 section-heading">使用技術與工具</h2>
+
+      <div class="table-responsive info-panel p-3">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              <th style="width: 22%;">類別</th>
+              <th style="width: 28%;">技術與工具</th>
+              <th>在專案中的實際用途</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="fw-semibold">程式語言與架構</td>
+              <td>Swift 5.9+、SwiftUI、MVVM</td>
+              <td>全專案畫面宣告、狀態管理（<code>AppState</code>）與 ViewModel 商業邏輯分離</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">藍牙硬體通訊</td>
+              <td>CoreBluetooth</td>
+              <td>掃描穿戴手套、訂閱 GATT 特徵值並接收 100 Hz 三軸陀螺儀／加速度計封包</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">數位訊號處理</td>
+              <td>Accelerate (vDSP)</td>
+              <td>執行去均值、Hann Window 與 400 點 Real FFT，計算三軸單邊 PSD 能量與主頻</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">資料視覺化</td>
+              <td>Swift Charts</td>
+              <td>繪製即時三軸感測器時域波形圖與頻域 PSD 功率頻譜分佈圖</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">本地資料持久化</td>
+              <td>SwiftData (<code>@Model</code>)</td>
+              <td>離線優先保存 <code>GloveData</code>、<code>TremorRecord</code>、<code>MedicationItem</code> 與 <code>SymptomLog</code></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">網路與資料壓縮</td>
+              <td>URLSession (async/await)、Compression (Zlib)</td>
+              <td>串接 Vapor 後端 RESTful API、JWT 驗證以及高頻感測器資料壓縮上傳</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">醫療報告輸出</td>
+              <td>WebKit、UIPrintPageRenderer、HTML / SVG</td>
+              <td>將動態生成之趨勢與頻譜 SVG 嵌入 <code>report_template.html</code> 並算繪為 PDF</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. 開發過程與實作方式 -->
+  <section class="project-section bg-white">
+    <div class="container">
+      <h2 class="h4 section-heading">開發過程與實作方式</h2>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-3">關鍵程式模組結構</h3>
+            <ul class="list-unstyled text-secondary small mb-0 d-flex flex-column gap-2">
+              <li><span class="code-path">App/SteadyHopeApp.swift</span>：註冊 SwiftData <code>ModelContainer</code> 並注入全域 <code>AppState</code>。</li>
+              <li><span class="code-path">Services/BLE/PacketParser.swift</span>：解析 20-byte 二進位 IMU 封包與電量資訊。</li>
+              <li><span class="code-path">Services/SignalProcessing/DataQualityChecker.swift</span>：驗證封包序號連續性與 Tick 時間差。</li>
+              <li><span class="code-path">Services/SignalProcessing/TremorFFTAnalyzer.swift</span>：執行 400 點 Real FFT 並判定 4–6 Hz 與 3–12 Hz 震顫能量級距。</li>
+              <li><span class="code-path">Services/Networking/NetworkClient.swift</span>：整合 JWT 授權與 Zlib 壓縮封包上傳。</li>
+              <li><span class="code-path">Services/Report/PDFReportGenerator.swift</span>：組裝動態 SVG 圖表至醫療報告樣板並輸出多頁 PDF。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-3">專案組態與版本演進</h3>
+            <p class="text-secondary small mb-3">
+              開發初期曾以獨立測試專案進行 BLE 手套連線驗證，後續統一整合至
+              <span class="code-path">com.fannno.SteadyHope</span> 並管理
+              <span class="code-path">project.pbxproj</span> 中的背景藍牙權限（<code>bluetooth-central</code>）與多遠端儲存庫同步。
+            </p>
+            <p class="text-secondary small mb-0">
+              在功能整合後，團隊針對無網路場域進行離線優先（Offline-First）測試，並於 2026 年 9 月完成 Version 1.0.0 里程碑與淡江大學資管系專題製作競賽發表。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. 遇到的問題及解決方式 -->
+  <section class="project-section bg-light">
+    <div class="container">
+      <h2 class="h4 section-heading">遇到的問題及解決方式</h2>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="troubleshoot-card">
+            <h3 class="h6 fw-bold mb-2">1. BLE 高頻掉包與硬體計時器溢位（Timer Rollover）</h3>
+            <p class="small text-muted mb-2">
+              <strong>問題：</strong>100 Hz 藍牙串流受環境干擾易發生掉包，且硬體 Tick 計數器在溢位歸零時會導致時間差計算錯誤。
+            </p>
+            <p class="small text-secondary mb-0">
+              <strong>解法：</strong>於封包解析層加入環狀緩衝區隔離接收回呼與運算執行緒，並以模數差值公式校正計時器溢位，依掉包率門檻決定線性補值或捨棄受損視窗。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="troubleshoot-card">
+            <h3 class="h6 fw-bold mb-2">2. FFT 頻譜洩漏與靜置時除零（NaN）問題</h3>
+            <p class="small text-muted mb-2">
+              <strong>問題：</strong>原始訊號含 1g 重力直流偏置且視窗邊界不連續會掩蓋 4–6 Hz 震顫主峰；手套靜止時總能量趨近零易產生 NaN。
+            </p>
+            <p class="small text-secondary mb-0">
+              <strong>解法：</strong>FFT 前先扣除平均值並乘上 Hann Window 抑制頻譜洩漏；正規化前加入最小能量閾值防護，低於底噪時直接回傳基準零值。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="troubleshoot-card">
+            <h3 class="h6 fw-bold mb-2">3. 高頻寫入造成 UI 掉幀與鍵盤收合跳動</h3>
+            <p class="small text-muted mb-2">
+              <strong>問題：</strong>每 10 ms 在主執行緒寫入 SwiftData 會阻塞畫面更新；登入驗證通過後立即切換路由會與鍵盤收合動畫衝突。
+            </p>
+            <p class="small text-secondary mb-0">
+              <strong>解法：</strong>將資料庫批次儲存移至背景 Actor Context，UI 指標以 <code>@MainActor</code> 節流更新；登入流程改為先解除鍵盤焦點再執行畫面切換。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="troubleshoot-card">
+            <h3 class="h6 fw-bold mb-2">4. 感測封包 HTTP 413 過大與 PDF 跨頁裁切</h3>
+            <p class="small text-muted mb-2">
+              <strong>問題：</strong>大量原始 JSON 波形上傳易觸發 HTTP 413 錯誤；長篇醫療報告在匯出 PDF 時容易在頁面邊緣截斷圖表。
+            </p>
+            <p class="small text-secondary mb-0">
+              <strong>解法：</strong>上傳前於客戶端以 Zlib（<code>libcompression</code>）進行串流壓縮；PDF 產生器動態追蹤垂直座標偏移量，超出邊界即自動分頁並為缺漏指標補上 <code>N/A</code> 安全預設值。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. 個人負責的工作與實際貢獻 -->
+  <section class="project-section bg-white">
+    <div class="container">
+      <h2 class="h4 section-heading">個人負責的工作與實際貢獻</h2>
+      <p class="text-secondary mb-4">
+        本專題為跨軟硬體團隊協作成果，以下明確區分個人在 iOS App 端的實際開發貢獻與其他組員負責範圍：
+      </p>
+
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="role-boundary-box role-personal">
+            <h3 class="h6 fw-bold mb-3"><i class="bi bi-person-check me-2"></i>個人實際負責項目（iOS App 端開發）</h3>
+            <ul class="list-unstyled text-secondary small mb-0 d-flex flex-column gap-2">
+              <li><i class="bi bi-check2 text-dark me-2"></i>設計並實作 SwiftUI + MVVM 整體專案架構與全域狀態管理（<code>SteadyHopeApp</code>、<code>AppState</code>），並處理 Xcode 專案組態與簽章整合。</li>
+              <li><i class="bi bi-check2 text-dark me-2"></i>開發 CoreBluetooth 智慧手套連線管理、20-byte 封包解析與 Sequence / Tick 品質校準機制。</li>
+              <li><i class="bi bi-check2 text-dark me-2"></i>實作基於 Accelerate (vDSP) 的去均值、Hann Window、400 點 Real FFT 與 PSD 震顫頻譜分析管線。</li>
+              <li><i class="bi bi-check2 text-dark me-2"></i>開發主畫面儀表板（<code>IndexView</code>）與 Swift Charts 即時三軸波形、PSD 頻譜圖介面，並修復登入鍵盤導覽問題。</li>
+              <li><i class="bi bi-check2 text-dark me-2"></i>建立 SwiftData 本地資料模型、實作客戶端 Vapor API 對接與 Zlib 壓縮上傳，以及 HTML + SVG 轉臨床 PDF 醫療報告產生器。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="role-boundary-box role-team">
+            <h3 class="h6 fw-bold mb-3"><i class="bi bi-people me-2"></i>其他組員負責項目（專案整體分工）</h3>
+            <ul class="list-unstyled text-muted small mb-0 d-flex flex-column gap-2">
+              <li><i class="bi bi-dot me-1"></i><strong>穿戴式硬體與韌體開發：</strong>實體智慧手套電路設計、微控制器（MCU）IMU 感測器韌體撰寫與 BLE 廣播端實作。</li>
+              <li><i class="bi bi-dot me-1"></i><strong>Vapor 後端與資料庫維運：</strong>後端伺服器架設、伺服器端資料庫 Schema 與 RESTful API 實作（個人負責 iOS 端 API 串接與聯調）。</li>
+              <li><i class="bi bi-dot me-1"></i><strong>後端 AI 摘要邏輯：</strong>伺服器端 AI 門診診詢摘要生成模組。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. 最終成果及展示畫面 -->
+  <section class="project-section bg-light">
+    <div class="container">
+      <h2 class="h4 section-heading">最終成果及展示畫面</h2>
+
+      <div class="row g-3 mb-4">
+        <div class="col-md-4">
+          <div class="info-panel p-3 text-center h-100">
+            <div class="fw-bold fs-5 text-dark">專題製作競賽第三名</div>
+            <div class="small text-muted">淡江大學資訊管理學系</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-panel p-3 text-center h-100">
+            <div class="fw-bold fs-5 text-dark">Version 1.0.0</div>
+            <div class="small text-muted">完成離線優先、BLE 串流與 PDF 報告整合</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-panel p-3 text-center h-100">
+            <div class="fw-bold fs-5 text-dark">100 Hz 即時分析</div>
+            <div class="small text-muted">裝置端 vDSP 400 點 FFT 與 PSD 能量判定</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <figure class="screenshot-figure">
+            <div class="screenshot-placeholder screenshot-placeholder-portrait">
+              <i class="bi bi-phone fs-2 mb-2"></i>
+              <div class="fw-semibold small text-dark mb-1">主畫面儀表板（預留畫面）</div>
+              <div class="small">待補入實機截圖：<br><span class="code-path">assets/images/steadyhope/dashboard.png</span></div>
+            </div>
+            <figcaption class="small text-muted mt-2 text-center">
+              呈現智慧手套 BLE 連線狀態、電量顯示與近期震顫量測摘要
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="col-md-4">
+          <figure class="screenshot-figure">
+            <div class="screenshot-placeholder screenshot-placeholder-portrait">
+              <i class="bi bi-activity fs-2 mb-2"></i>
+              <div class="fw-semibold small text-dark mb-1">即時波形與 PSD 頻譜圖（預留畫面）</div>
+              <div class="small">待補入實機截圖：<br><span class="code-path">assets/images/steadyhope/spectrum.png</span></div>
+            </div>
+            <figcaption class="small text-muted mt-2 text-center">
+              透過 Swift Charts 即時繪製三軸 IMU 波形與 4–6 Hz 頻譜能量分佈
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="col-md-4">
+          <figure class="screenshot-figure">
+            <div class="screenshot-placeholder screenshot-placeholder-portrait">
+              <i class="bi bi-file-earmark-medical fs-2 mb-2"></i>
+              <div class="fw-semibold small text-dark mb-1">PDF 醫療評估報告預覽（預留畫面）</div>
+              <div class="small">待補入實機截圖：<br><span class="code-path">assets/images/steadyhope/pdf-report.png</span></div>
+            </div>
+            <figcaption class="small text-muted mt-2 text-center">
+              由 HTML 樣板結合動態 SVG 趨勢圖自動產出之臨床報告文件
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- 底部專案導覽 -->
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mt-5 pt-4 border-top">
+        <a href="../index.html#portfolio" class="btn btn-outline-dark">
+          <i class="bi bi-grid me-2"></i>返回專案作品
+        </a>
+        <a href="qwq.html" class="btn btn-dark">
+          下一個專案：QWQ 監規餘 <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <div class="mb-3">
+        <a href="https://github.com/Fannno"
+          target="_blank" rel="noopener noreferrer"
+          class="text-white mx-3 text-decoration-none"
+          aria-label="GitHub 個人頁面">
+          <i class="bi bi-github fs-4"></i>
+        </a>
+      </div>
+
+      <small>&copy; 2026 Fannno. All Rights Reserved.</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

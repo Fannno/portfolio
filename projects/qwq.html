@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QWQ 監規餘 — Quick Wallet Query | 樊柔妤作品集</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- 導覽列 -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="../index.html#home">Fan's Portfolio</a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html#home">首頁</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#about">關於我</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#skills">專業技能</a></li>
+          <li class="nav-item"><a class="nav-link active" href="../index.html#portfolio">專案作品</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#contact">聯絡方式</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. 專案名稱、簡介與外部連結 -->
+  <header class="project-hero">
+    <div class="container">
+      <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb mb-0 small">
+          <li class="breadcrumb-item"><a href="../index.html#portfolio" class="text-decoration-none text-secondary">專案作品</a></li>
+          <li class="breadcrumb-item active text-dark" aria-current="page">QWQ 監規餘</li>
+        </ol>
+      </nav>
+
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <div class="project-badges mb-3">
+            <span class="badge badge-react">React</span>
+            <span class="badge badge-node">Node.js / Express</span>
+            <span class="badge badge-mongodb">MongoDB</span>
+            <span class="badge badge-javascript">JavaScript</span>
+            <span class="badge bg-secondary">規劃 C# / .NET MVC 重構</span>
+          </div>
+
+          <h1 class="fw-bold mb-2">QWQ 監規餘</h1>
+          <p class="text-muted mb-3">Quick Wallet Query — 個人收支管理與日常記帳系統</p>
+          <p class="lead fs-6 text-secondary mb-0">
+            一套支援跨裝置同步的個人收支管理系統。目前對應 <code>114_web_endterm_project</code> 儲存庫的實作版本採用
+            MERN Stack 前後端分離架構（React、Node.js、Express、MongoDB Atlas），具備 JWT 身分驗證與每日收支自動彙整；
+            後續規劃逐步重構為 C# / .NET MVC 與 SQL Server 關聯式資料庫架構，強化型別安全與企業級系統維運結構。
+          </p>
+        </div>
+
+        <div class="col-lg-4 d-flex flex-column gap-2">
+          <a href="https://github.com/Fannno/114_web_endterm_project"
+            target="_blank" rel="noopener noreferrer"
+            class="btn btn-dark">
+            <i class="bi bi-github me-2"></i>查看 GitHub Repository
+          </a>
+          <a href="../index.html#portfolio" class="btn btn-outline-dark">
+            <i class="bi bi-arrow-left me-2"></i>返回專案作品列表
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2 & 3. 專案背景與開發動機、專案目標 -->
+  <section class="project-section bg-white">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h2 class="h4 section-heading">專案背景與開發動機</h2>
+          <div class="info-panel p-4 h-100">
+            <p class="text-secondary mb-3">
+              本專案源於 114 學年度網頁程式設計期末專題，旨在解決日常個人記帳在手機與桌面電腦之間難以同步、
+              且純靜態頁面缺乏使用者帳號隔離與雲端資料持久化的問題。
+            </p>
+            <p class="text-secondary mb-0">
+              第一階段以 MERN Stack 完成全端實作與雲端部署後，結合實習期間累積的企業級系統開發經驗，
+              進一步規劃將系統朝向 C# / .NET MVC 與 SQL Server 架構重構，讓財務帳務資料具備更嚴謹的關聯式結構與分層設計。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <h2 class="h4 section-heading">專案目標</h2>
+          <div class="info-panel p-4 h-100">
+            <ul class="list-unstyled text-secondary mb-0 d-flex flex-column gap-2">
+              <li>
+                <i class="bi bi-check-circle-fill text-dark me-2"></i>
+                <strong>前後端分離與雲端儲存：</strong>建構獨立前端 SPA 與 RESTful API 後端，達成跨裝置帳務即時同步。
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-dark me-2"></i>
+                <strong>無狀態身分驗證與資安防護：</strong>透過 Bcrypt 雜湊保護與 JWT 中介軟體確保每位使用者的財務資料安全隔離。
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-dark me-2"></i>
+                <strong>高效能日期彙整檢視：</strong>於前端以單次遍歷分組演算法即時計算每日收支小計並依日期降冪呈現。
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-dark me-2"></i>
+                <strong>技術架構演進（後續規劃）：</strong>規劃以 C# / .NET MVC 與 SQL Server 進行重構，深化關聯式帳務查詢與預算規則驗證。
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 核心功能與特色 -->
+  <section class="project-section bg-light">
+    <div class="container">
+      <h2 class="h4 section-heading">核心功能與特色（現有 MERN 版本）</h2>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-shield-lock me-2"></i>帳號註冊與 JWT 驗證</h3>
+            <p class="text-muted small mb-0">
+              支援使用者註冊與登入，前後端雙重執行 Regex 格式驗證，憑證經 Bcrypt 加鹽雜湊儲存，
+              並以 Bearer Token 保護私有帳務路由。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-journal-text me-2"></i>完整收支 CRUD 操作</h3>
+            <p class="text-muted small mb-0">
+              提供收入與支出項目的新增、查詢、編輯與刪除功能，每筆紀錄皆嚴格綁定登入使用者識別碼。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-calendar3 me-2"></i>每日自動分組與小計</h3>
+            <p class="text-muted small mb-0">
+              自動將扁平的交易陣列依日期歸類為獨立日期卡片，由新到舊排序並即時加總當日收支淨額。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-phone me-2"></i>響應式跨裝置介面</h3>
+            <p class="text-muted small mb-0">
+              前端部署於 GitHub Pages，針對手機與桌面瀏覽器調整表單與列表排版，支援隨時隨地記錄開銷。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 系統架構與後續技術轉換方向 -->
+  <section class="project-section bg-white">
+    <div class="container">
+      <h2 class="h4 section-heading">系統架構與技術演進路線</h2>
+      <p class="text-secondary mb-4">
+        以下左側為目前已部署上線的 <strong>MERN Stack 三層式雲端架構</strong>；右側則標註後續規劃重構之
+        <strong>C# / .NET MVC + SQL Server</strong> 目標架構方向（目前為規劃階段）。
+      </p>
+
+      <div class="arch-diagram-box mb-4">
+        <svg viewBox="0 0 820 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QWQ 現有 MERN 架構與後續重構方向示意圖">
+          <defs>
+            <marker id="qwq-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#495057"/>
+            </marker>
+          </defs>
+
+          <!-- 現有架構框 -->
+          <rect x="16" y="16" width="510" height="248" rx="10" fill="#ffffff" stroke="#212529" stroke-width="1.5"/>
+          <text x="34" y="42" font-size="13" font-weight="700" fill="#212529">現有已部署架構（114_web_endterm_project）</text>
+
+          <rect x="34" y="64" width="136" height="84" rx="8" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1.5"/>
+          <text x="102" y="96" text-anchor="middle" font-size="13.5" font-weight="700" fill="#212529">React + Vite</text>
+          <text x="102" y="116" text-anchor="middle" font-size="11.5" fill="#6c757d">GitHub Pages</text>
+          <text x="102" y="134" text-anchor="middle" font-size="11" fill="#6c757d">Hash Map 分組</text>
+
+          <line x1="170" y1="106" x2="202" y2="106" stroke="#495057" stroke-width="1.5" marker-end="url(#qwq-arrow)"/>
+
+          <rect x="208" y="64" width="144" height="84" rx="8" fill="#ffffff" stroke="#212529" stroke-width="1.5"/>
+          <text x="280" y="96" text-anchor="middle" font-size="13.5" font-weight="700" fill="#212529">Node.js + Express</text>
+          <text x="280" y="116" text-anchor="middle" font-size="11.5" fill="#6c757d">Render 雲端託管</text>
+          <text x="280" y="134" text-anchor="middle" font-size="11" fill="#6c757d">JWT / Bcrypt / CORS</text>
+
+          <line x1="352" y1="106" x2="384" y2="106" stroke="#495057" stroke-width="1.5" marker-end="url(#qwq-arrow)"/>
+
+          <rect x="390" y="64" width="120" height="84" rx="8" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1.5"/>
+          <text x="450" y="96" text-anchor="middle" font-size="13.5" font-weight="700" fill="#212529">MongoDB Atlas</text>
+          <text x="450" y="116" text-anchor="middle" font-size="11.5" fill="#6c757d">Mongoose ODM</text>
+          <text x="450" y="134" text-anchor="middle" font-size="11" fill="#6c757d">User / Record</text>
+
+          <!-- 資料處理註解 -->
+          <rect x="34" y="168" width="476" height="76" rx="6" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+          <text x="50" y="192" font-size="12" font-weight="700" fill="#212529">核心資料處理流程：</text>
+          <text x="50" y="212" font-size="11.5" fill="#495057">1. API 驗證 JWT 後自 MongoDB 撈取該使用者帳務陣列回傳前端</text>
+          <text x="50" y="230" font-size="11.5" fill="#495057">2. 前端以 O(N) Hash Map 依 YYYY-MM-DD 歸類、計算小計並降冪排序</text>
+
+          <!-- 轉換箭頭 -->
+          <line x1="526" y1="140" x2="564" y2="140" stroke="#6c757d" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#qwq-arrow)"/>
+
+          <!-- 後續重構方向框 -->
+          <rect x="570" y="16" width="234" height="248" rx="10" fill="#f8f9fa" stroke="#6c757d" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <text x="687" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#495057">後續重構規劃方向（未完成）</text>
+
+          <rect x="590" y="64" width="194" height="52" rx="6" fill="#ffffff" stroke="#adb5bd" stroke-width="1"/>
+          <text x="687" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#212529">C# / .NET MVC</text>
+          <text x="687" y="106" text-anchor="middle" font-size="11" fill="#6c757d">強型別 Controller 與服務分層</text>
+
+          <line x1="687" y1="116" x2="687" y2="136" stroke="#6c757d" stroke-width="1.2" marker-end="url(#qwq-arrow)"/>
+
+          <rect x="590" y="140" width="194" height="52" rx="6" fill="#ffffff" stroke="#adb5bd" stroke-width="1"/>
+          <text x="687" y="164" text-anchor="middle" font-size="13" font-weight="700" fill="#212529">SQL Server 關聯式資料庫</text>
+          <text x="687" y="182" text-anchor="middle" font-size="11" fill="#6c757d">預算規劃與多表關聯查詢</text>
+
+          <text x="687" y="218" text-anchor="middle" font-size="11" fill="#6c757d">重構目的：統一技術棧與練習</text>
+          <text x="687" y="234" text-anchor="middle" font-size="11" fill="#6c757d">企業級 MVC 開發與 SQL 交易控制</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 使用技術與工具 -->
+  <section class="project-section bg-light">
+    <div class="container">
+      <h2 class="h4 section-heading">使用技術與工具</h2>
+
+      <div class="table-responsive info-panel p-3">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              <th style="width: 22%;">層級</th>
+              <th style="width: 32%;">現有版本技術（已實作）</th>
+              <th>說明與後續重構方向</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="fw-semibold">前端介面與狀態</td>
+              <td>React.js、JavaScript (ES6+)、HTML5/CSS3</td>
+              <td>負責元件化開發、Virtual DOM 局部更新與 Regex 表單即時檢驗</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">開發伺服器與建置</td>
+              <td>Vite</td>
+              <td>負責本地開發伺服器（Dev Server）、環境變數注入與前端靜態資源打包建置</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">後端與 API</td>
+              <td>Node.js、Express.js、RESTful API</td>
+              <td>實作身分驗證路由與帳務 CRUD 端點；後續規劃轉換為 C# / .NET MVC</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">資料庫與模型</td>
+              <td>MongoDB Atlas、Mongoose ODM</td>
+              <td>雲端 NoSQL 資料持久化；後續規劃轉換為 SQL Server 關聯式資料庫</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">資安與驗證</td>
+              <td>JWT (<code>jsonwebtoken</code>)、Bcrypt、CORS、Dotenv</td>
+              <td>憑證加鹽雜湊、無狀態 Token 驗證、跨域白名單與雲端環境變數管理</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">部署與文件</td>
+              <td>GitHub Pages (<code>gh-pages</code>)、Render、Mermaid Chart</td>
+              <td>前後端分離雲端託管與系統架構圖繪製</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. 開發過程與實作方式 -->
+  <section class="project-section bg-white">
+    <div class="container">
+      <h2 class="h4 section-heading">開發過程與實作歷程</h2>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="info-panel p-4 h-100">
+            <h3 class="h6 fw-bold mb-3">現有版本（MERN Stack）實作重點</h3>
+            <ul class="list-unstyled text-secondary small mb-0 d-flex flex-column gap-2">
+              <li><span class="code-path">frontend/</span>：以 React 負責登入註冊與儀表板元件化開發及 Virtual DOM 更新，並透過 Vite 提供開發伺服器、打包建置與 <code>VITE_API_URL</code> 環境區分。</li>
+              <li><span class="code-path">Hash Map 日期分組</span>：單次遍歷資料庫回傳陣列建立日期鍵值表，同步計算當日總額並執行降冪排序。</li>
+              <li><span class="code-path">backend/middleware/</span>：實作 <code>authMiddleware</code> 驗證請求標頭之 Bearer Token，隔離不同使用者的帳務存取權限。</li>
+              <li><span class="code-path">backend/models/</span>：透過 Mongoose 定義 <code>User</code> 與 <code>Record</code> Schema，確保驗證資訊僅存雜湊值。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="info-panel-muted p-4 h-100">
+            <h3 class="h6 fw-bold mb-3">後續重構方向（C# / .NET MVC + SQL Server）</h3>
+            <p class="text-secondary small mb-2">
+              在完成課程專題的 MERN 實作後，結合日常學習與實習所使用的 C# (.NET MVC) 與 SQL 技術棧，
+              規劃將「QWQ 監規餘」作為後續重構練習標的（目前尚未完成重構）。
+            </p>
+            <ul class="list-unstyled text-muted small mb-0 d-flex flex-column gap-1">
+              <li><i class="bi bi-arrow-right-short me-1"></i><strong>重構目的：</strong>將單純收支紀錄擴展為包含預算上限設定與剩餘額度查詢的關聯式系統。</li>
+              <li><i class="bi bi-arrow-right-short me-1"></i><strong>架構規劃：</strong>導入 SQL Server 進行交易完整性控管與多條件財務報表查詢。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. 遇到的問題及解決方式 -->
+  <section class="project-section bg-light">
+    <div class="container">
+      <h2 class="h4 section-heading">遇到的問題及解決方式</h2>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="troubleshoot-card">
+            <h3 class="h6 fw-bold mb-2">1. 環境設定檔管理與資料庫連線安全</h3>
+            <p class="small text-muted mb-2">
+              <strong>問題：</strong>開發初期曾將含資料庫連線設定的環境檔誤納入版控提交，觸發儲存庫安全掃描提醒。
+            </p>
+            <p class="small text-secondary mb-0">
+              <strong>解法：</strong>立即於 MongoDB Atlas 輪換連線憑證，將敏感設定檔加入 <code>.gitignore</code> 排除，並改由 Render 雲端環境變數面板安全注入。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="troubleshoot-card">
+            <h3 class="h6 fw-bold mb-2">2. 前後端分離部署之 CORS 跨域攔截</h3>
+            <p class="small text-muted mb-2">
+              <strong>問題：</strong>前端部署於 GitHub Pages、後端部署於 Render 時，跨網域 API 請求與 Preflight 被瀏覽器阻擋。
+            </p>
+            <p class="small text-secondary mb-0">
+              <strong>解法：</strong>在 Express 後端設定 <code>cors</code> 中介軟體白名單明確允許前端網域與 <code>Authorization</code> 標頭，並以 <code>VITE_API_URL</code> 統一切換環境路徑。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="troubleshoot-card">
+            <h3 class="h6 fw-bold mb-2">3. Render 免費方案休眠導致首次請求延遲</h3>
+            <p class="small text-muted mb-2">
+              <strong>問題：</strong>Render 免費方案伺服器在閒置 15 分鐘後會自動進入休眠（Spin Down），喚醒時請求需等待約 30 至 60 秒。
+            </p>
+            <p class="small text-secondary mb-0">
+              <strong>解法：</strong>於前端加入載入等待提示避免使用者重複送出表單，並在 README 與展示說明中明確標註冷啟動特性。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="troubleshoot-card">
+            <h3 class="h6 fw-bold mb-2">4. 扁平交易陣列的重複篩選效能問題</h3>
+            <p class="small text-muted mb-2">
+              <strong>問題：</strong>後端回傳的紀錄為扁平陣列，若每次渲染皆使用巢狀迴圈依日期比對，當筆數增加時邏輯複雜度高。
+            </p>
+            <p class="small text-secondary mb-0">
+              <strong>解法：</strong>改用 Hash Map 進行一次 O(N) 遍歷即可同時完成分組與每日收支小計，再配合 React Virtual DOM 執行局部畫面更新。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. 個人負責的工作與實際貢獻 -->
+  <section class="project-section bg-white">
+    <div class="container">
+      <h2 class="h4 section-heading">個人負責的工作與實際貢獻</h2>
+
+      <div class="role-boundary-box role-personal">
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+          <h3 class="h6 fw-bold mb-0"><i class="bi bi-person-check me-2"></i>個人獨立完成專案（Solo Project）</h3>
+          <span class="badge bg-dark">100% 獨立設計、開發與部署</span>
+        </div>
+        <ul class="list-unstyled text-secondary small mb-0 d-flex flex-column gap-2">
+          <li><i class="bi bi-check2 text-dark me-2"></i><strong>全端架構與介面實作：</strong>獨立開發 React + Vite 前端元件、RWD 排版、Regex 表單驗證與 Hash Map 日期分組演算法。</li>
+          <li><i class="bi bi-check2 text-dark me-2"></i><strong>後端 API 與資安驗證：</strong>獨立建置 Node.js + Express RESTful API、JWT 驗證中介軟體與 Bcrypt 雜湊保護機制。</li>
+          <li><i class="bi bi-check2 text-dark me-2"></i><strong>資料庫與雲端維運部署：</strong>建立並管理 MongoDB Atlas 雲端叢集、處理網路權限與憑證輪換，完成 GitHub Pages 前端與 Render 後端串接部署。</li>
+          <li><i class="bi bi-check2 text-dark me-2"></i><strong>架構規劃與文件撰寫：</strong>繪製 Mermaid 系統架構圖、撰寫 README 技術文件，並擬定後續朝 C# / .NET MVC 與 SQL Server 轉換的重構方向。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. 最終成果及展示畫面 -->
+  <section class="project-section bg-light">
+    <div class="container">
+      <h2 class="h4 section-heading">最終成果及展示畫面</h2>
+
+      <div class="row g-3 mb-4">
+        <div class="col-md-4">
+          <div class="info-panel p-3 text-center h-100">
+            <div class="fw-bold fs-5 text-dark">MERN 全端上線</div>
+            <div class="small text-muted">GitHub Pages + Render + MongoDB Atlas</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-panel p-3 text-center h-100">
+            <div class="fw-bold fs-5 text-dark">JWT + Bcrypt</div>
+            <div class="small text-muted">完整帳號隔離與資安驗證流程</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-panel p-3 text-center h-100">
+            <div class="fw-bold fs-5 text-dark">C# / .NET 重構規劃</div>
+            <div class="small text-muted">持續演進至關聯式預算管理架構</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <figure class="screenshot-figure">
+            <div class="screenshot-placeholder">
+              <i class="bi bi-window fs-2 mb-2"></i>
+              <div class="fw-semibold small text-dark mb-1">登入與註冊畫面（預留畫面）</div>
+              <div class="small">待補入實機截圖：<span class="code-path">assets/images/qwq/login.png</span></div>
+            </div>
+            <figcaption class="small text-muted mt-2 text-center">
+              提供帳號註冊與登入表單，內建 Regex 即時格式驗證與錯誤提示
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="col-md-6">
+          <figure class="screenshot-figure">
+            <div class="screenshot-placeholder">
+              <i class="bi bi-layout-text-window-reverse fs-2 mb-2"></i>
+              <div class="fw-semibold small text-dark mb-1">每日收支分組儀表板（預留畫面）</div>
+              <div class="small">待補入實機截圖：<span class="code-path">assets/images/qwq/dashboard.png</span></div>
+            </div>
+            <figcaption class="small text-muted mt-2 text-center">
+              呈現依日期降冪排列的收支卡片、當日小計計算與新增／編輯表單
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- 底部專案導覽 -->
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mt-5 pt-4 border-top">
+        <a href="steadyhope.html" class="btn btn-outline-dark">
+          <i class="bi bi-arrow-left me-2"></i>上一個專案：SteadyHope
+        </a>
+        <a href="../index.html#portfolio" class="btn btn-outline-secondary">
+          <i class="bi bi-grid me-2"></i>返回專案作品
+        </a>
+        <a href="hatchabit.html" class="btn btn-dark">
+          下一個專案：Hatchabit <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <div class="mb-3">
+        <a href="https://github.com/Fannno"
+          target="_blank" rel="noopener noreferrer"
+          class="text-white mx-3 text-decoration-none"
+          aria-label="GitHub 個人頁面">
+          <i class="bi bi-github fs-4"></i>
+        </a>
+      </div>
+
+      <small>&copy; 2026 Fannno. All Rights Reserved.</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
