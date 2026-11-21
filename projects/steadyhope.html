@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SteadyHope 帕金森氏症照護輔助系統 | 樊柔妤作品集</title>
+  <title>SteadyHope－以主動抑震為基礎之帕金森氏症智慧型輔助系統 | 樊柔妤作品集</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
@@ -52,17 +52,22 @@
             <span class="badge badge-swift">Swift</span>
             <span class="badge bg-secondary">SwiftUI</span>
             <span class="badge bg-info text-dark">MVVM</span>
-            <span class="badge bg-dark">CoreBluetooth</span>
-            <span class="badge bg-dark">Accelerate (vDSP)</span>
+            <span class="badge bg-dark">iOS App</span>
             <span class="badge bg-success">資管系專題競賽第三名</span>
           </div>
 
-          <h1 class="fw-bold mb-2">SteadyHope 帕金森氏症照護輔助系統</h1>
-          <p class="text-muted mb-3">iOS 智慧遠距震顫監測與照護管理應用程式（Version 1.0.0）</p>
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <img src="../assets/images/steadyhope/logo.png" alt="SteadyHope 系統識別標誌" width="64" height="64" class="rounded border bg-white p-1 flex-shrink-0">
+            <div>
+              <h1 class="fw-bold mb-1">SteadyHope</h1>
+              <p class="text-muted mb-0">以主動抑震為基礎之帕金森氏症智慧型輔助系統（iOS App）</p>
+            </div>
+          </div>
           <p class="lead fs-6 text-secondary mb-0">
-            專為帕金森氏症與手部震顫患者設計的 iOS 輔助系統。透過低功耗藍牙（BLE）接收穿戴式智慧手套
-            100 Hz 感測器數據，在手機端即時進行 FFT 與功率頻譜密度（PSD）分析，並結合離線優先儲存、
-            用藥提醒、照護者遠距配對與臨床 PDF 醫療報告匯出功能，輔助醫師評估日常症狀波動。
+            從帕金森氏症患者的日常手部震顫困擾出發，結合穿戴式智慧手套與 iOS 照護管理應用程式。
+            App 端採 SwiftUI 與 MVVM + Repository 分層架構，整合裝置連線與即時動作紀錄、
+            多劑型用藥與貼片輪替防呆流程、患者授權之雙角色照護協作、AI 對話代記助理「小安」，
+            以及可整理日常數據與摘要的 PDF 回診報告匯出功能。
           </p>
         </div>
 
@@ -88,12 +93,11 @@
           <h2 class="h4 section-heading">專案背景與開發動機</h2>
           <div class="info-panel p-4 h-100">
             <p class="text-secondary mb-3">
-              帕金森氏症患者的肢體震顫具有高度時變性，容易受到用藥週期、情緒與疲勞程度影響。
-              傳統門診僅能透過醫師短短數分鐘的現場觀察與主觀量表進行評估，難以完整掌握患者在居家生活中的真實症狀變化。
+              帕金森氏症患者的肢體震顫常使拿杯子、吃飯、寫字等日常動作變得費力，逐漸影響生活自主與信心；
+              此外，震顫表現會隨用藥時間、情緒與日常活動波動，患者回診時卻往往只能靠記憶向醫師口述，難以在有限門診時間內完整說明近況。
             </p>
             <p class="text-secondary mb-0">
-              現有市售穿戴裝置多專注於步數或心率統計，缺乏針對手部三軸角速度與加速度的高頻率取樣與頻譜分析工具，
-              家屬與患者之間也缺乏整合用藥狀態與震顫紀錄的同步介面，因此促使團隊規劃這套結合感測硬體與 iOS 應用的輔助系統。
+              為此，團隊規劃將穿戴式裝置量測與日常照護紀錄整合於同一套系統中，讓量測數值能與當時的活動情境、服藥時間與主觀感受互相對照，提供家屬協助管理與醫師回診參考。
             </p>
           </div>
         </div>
@@ -104,19 +108,19 @@
             <ul class="list-unstyled text-secondary mb-0 d-flex flex-column gap-2">
               <li>
                 <i class="bi bi-check-circle-fill text-dark me-2"></i>
-                <strong>量化日常震顫特徵：</strong>以 100 Hz 接收穿戴手套 IMU 資料並在裝置端執行 FFT/PSD 分析，鎖定 4–6 Hz 典型震顫頻帶。
+                <strong>整合穿戴量測與生活情境：</strong>接收裝置動作資料並在紀錄中補充當下活動標籤、備註與照片，讓數值具備生活背景。
               </li>
               <li>
                 <i class="bi bi-check-circle-fill text-dark me-2"></i>
-                <strong>建立離線優先紀錄機制：</strong>在無網路環境下透過 SwiftData 完整保存量測與用藥資料，連線後壓縮同步至後端。
+                <strong>建立細緻且防呆的用藥管理：</strong>涵蓋口服、貼片與注射排程，協助追蹤實際服藥時間並對照藥效波動趨勢。
               </li>
               <li>
                 <i class="bi bi-check-circle-fill text-dark me-2"></i>
-                <strong>支援家庭照護協作：</strong>提供個案與照護者雙向授權綁定，同步追蹤用藥打卡與異常震顫時間點。
+                <strong>支援患者授權的照護協作：</strong>讓患者（Hoper）可主動授權多名照護者（Steadyer）協助管理排程或登錄紀錄。
               </li>
               <li>
                 <i class="bi bi-check-circle-fill text-dark me-2"></i>
-                <strong>產出臨床可用醫療報告：</strong>於手機端將長期趨勢與頻譜圖表轉換為向量級 PDF 文件，縮短門診溝通成本。
+                <strong>整理可攜帶的 PDF 回診報告：</strong>依日期區間彙整趨勢圖表、用藥、生活紀錄與 AI 摘要草稿，提升醫病溝通效率。
               </li>
             </ul>
           </div>
@@ -133,59 +137,54 @@
       <div class="row g-4">
         <div class="col-md-6 col-lg-4">
           <div class="info-panel p-4 h-100">
-            <h3 class="h6 fw-bold mb-2"><i class="bi bi-bluetooth me-2"></i>BLE 手套連線與封包校準</h3>
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-capsule me-2"></i>多劑型用藥與貼片輪替防呆（亮點）</h3>
             <p class="text-muted small mb-0">
-              封裝 CoreBluetooth 掃描與訂閱流程，即時接收 20-byte 二進位 IMU 封包與手套電量，
-              並透過 Sequence 連續性與硬體 Tick 差值檢驗確保取樣品質。
+              支援口服、貼片與注射三種劑型排程與單次補登；針對穿皮貼片設計「舊貼片移除確認」、「12 處部位 14 天重複提醒」、「30 秒按壓倒數」與膚況照片紀錄，並提供服藥時間與震動強度對照圖。
             </p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
           <div class="info-panel p-4 h-100">
-            <h3 class="h6 fw-bold mb-2"><i class="bi bi-activity me-2"></i>裝置端即時 FFT / PSD 分析</h3>
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-people me-2"></i>雙角色照護協作與權限控管</h3>
             <p class="text-muted small mb-0">
-              採用 Apple Accelerate (vDSP) 框架在手機端執行去均值、Hann Window 視窗化與
-              400 點實數快速傅立葉變換，計算三軸單邊功率頻譜密度與 RMS 強度。
+              區分佩戴者（Hoper）與照護者（Steadyer）雙角色介面，透過 6 位數時效性配對碼綁定；患者可分別開關「管理用藥排程」與「新增用藥紀錄」兩項獨立授權，安全掌握資料主導權。
             </p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
           <div class="info-panel p-4 h-100">
-            <h3 class="h6 fw-bold mb-2"><i class="bi bi-graph-up me-2"></i>即時波形與儀表板視覺化</h3>
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-activity me-2"></i>裝置連線校準與即時動作紀錄</h3>
             <p class="text-muted small mb-0">
-              透過 Swift Charts 繪製三軸即時感測器波形與 PSD 頻譜分佈，並在首頁儀表板顯示手套電量、
-              連線狀態與最近一次震顫量測時間戳記。
+              整合穿戴手套連線狀態與電量顯示、配戴初期拉線長度設定及模式切換；資料頁提供簡易／標準顯示切換，並於量測紀錄補記休息、吃飯、寫字等活動情境與照片。
             </p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
           <div class="info-panel p-4 h-100">
-            <h3 class="h6 fw-bold mb-2"><i class="bi bi-database me-2"></i>SwiftData 離線儲存與壓縮同步</h3>
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-journal-check me-2"></i>生活留言、影音症狀與自我評估</h3>
             <p class="text-muted small mb-0">
-              所有原始切片、震顫特徵、用藥紀錄與症狀日誌優先寫入本地 SwiftData；
-              恢復網路後以 Zlib 壓縮高頻感測封包並透過 async/await 批次同步至 Vapor 後端。
+              提供病患與家屬心情便箋（含僅照護者可見留言）、突發症狀照片／影片紀錄牆、血壓／血糖／體溫／體重與睡眠飲食登錄，以及 5 題快篩與 25 題綜合自評量表。
             </p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
           <div class="info-panel p-4 h-100">
-            <h3 class="h6 fw-bold mb-2"><i class="bi bi-file-earmark-pdf me-2"></i>向量級 PDF 醫療報告匯出</h3>
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-chat-dots me-2"></i>「小安」AI 助理與自然語言代記</h3>
             <p class="text-muted small mb-0">
-              將長期 RMS 趨勢與頻譜數據轉為內嵌 SVG 向量圖形注入 HTML 樣板，透過 WebKit 與
-              UIPrintPageRenderer 產出無失真分頁 PDF 報告，方便門診分享。
+              內建對話助理「小安」，可透過自然語言查詢近期用藥與健康紀錄，或在確認藥名、劑量與時間後直接代為建立用藥與生活留言紀錄（輔以知識庫向量檢索）。
             </p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
           <div class="info-panel p-4 h-100">
-            <h3 class="h6 fw-bold mb-2"><i class="bi bi-people me-2"></i>用藥提醒與照護者授權綁定</h3>
+            <h3 class="h6 fw-bold mb-2"><i class="bi bi-file-earmark-pdf me-2"></i>自選主題摘要與 PDF 回診報告</h3>
             <p class="text-muted small mb-0">
-              整合每日用藥排程打卡與個案／照護者雙向綁定權限控管，讓家屬能遠距追蹤用藥狀況並檢視後端生成的診詢摘要。
+              回診前可選定日期區間與健康主題生成 AI 摘要草稿，供使用者親自核對與修改文字後，匯出包含趨勢圖表、用藥清單、生活紀錄與判讀規則附錄的完整 PDF 報告。
             </p>
           </div>
         </div>
@@ -196,64 +195,49 @@
   <!-- 5. 系統架構與資料處理流程 -->
   <section class="project-section bg-white">
     <div class="container">
-      <h2 class="h4 section-heading">系統架構與訊號處理流程</h2>
+      <h2 class="h4 section-heading">軟體系統架構與資料交換流程</h2>
       <p class="text-secondary mb-4">
-        iOS 端採 <strong>SwiftUI + MVVM + Service Layer</strong> 分層架構，將 BLE 通訊、vDSP 訊號處理、SwiftData 持久化與網路同步完全解耦。
+        iOS 端採 <strong>View (SwiftUI) / ViewModel / Model &amp; DTO / Repository / Service</strong> 分層架構，將介面狀態、資料存取抽象化、藍牙通訊與雲端 API 清楚分離。
       </p>
 
       <div class="arch-diagram-box mb-4">
-        <svg viewBox="0 0 820 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SteadyHope 系統架構與訊號處理流程圖">
+        <svg viewBox="0 0 820 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SteadyHope 軟體系統架構圖">
           <defs>
             <marker id="sh-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
               <path d="M 0 1 L 8 5 L 0 9 z" fill="#495057"/>
             </marker>
           </defs>
 
-          <!-- 上層：即時訊號管線 -->
-          <rect x="20" y="24" width="170" height="74" rx="8" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1.5"/>
-          <text x="105" y="54" text-anchor="middle" font-size="14" font-weight="700" fill="#212529">BLE 智慧手套</text>
-          <text x="105" y="76" text-anchor="middle" font-size="12" fill="#6c757d">100 Hz / 20-byte IMU</text>
+          <!-- View / ViewModel / Repository -->
+          <rect x="210" y="16" width="400" height="52" rx="8" fill="#212529" stroke="#212529" stroke-width="1.5"/>
+          <text x="410" y="39" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">View（SwiftUI）</text>
+          <text x="410" y="57" text-anchor="middle" font-size="11.5" fill="#dee2e6">首頁導覽、即時監測、用藥與貼片、生活紀錄、AI 對話與報告匯出</text>
 
-          <line x1="190" y1="61" x2="226" y2="61" stroke="#495057" stroke-width="1.5" marker-end="url(#sh-arrow)"/>
+          <line x1="410" y1="68" x2="410" y2="88" stroke="#495057" stroke-width="1.5" marker-end="url(#sh-arrow)"/>
 
-          <rect x="232" y="24" width="175" height="74" rx="8" fill="#ffffff" stroke="#212529" stroke-width="1.5"/>
-          <text x="319" y="54" text-anchor="middle" font-size="14" font-weight="700" fill="#212529">封包解析與品質校準</text>
-          <text x="319" y="76" text-anchor="middle" font-size="11.5" fill="#6c757d">PacketParser / Seq Check</text>
+          <rect x="140" y="92" width="540" height="50" rx="8" fill="#ffffff" stroke="#212529" stroke-width="1.5"/>
+          <text x="410" y="114" text-anchor="middle" font-size="14" font-weight="700" fill="#212529">ViewModel 層</text>
+          <text x="410" y="132" text-anchor="middle" font-size="11.5" fill="#6c757d">管理 Login / Data / Bluetooth / Medication / Symptom / Vitals / Export 畫面狀態</text>
 
-          <line x1="407" y1="61" x2="443" y2="61" stroke="#495057" stroke-width="1.5" marker-end="url(#sh-arrow)"/>
+          <line x1="410" y1="142" x2="410" y2="162" stroke="#495057" stroke-width="1.5" marker-end="url(#sh-arrow)"/>
 
-          <rect x="449" y="24" width="175" height="74" rx="8" fill="#ffffff" stroke="#212529" stroke-width="2"/>
-          <text x="536" y="54" text-anchor="middle" font-size="14" font-weight="700" fill="#212529">vDSP 頻譜分析管線</text>
-          <text x="536" y="76" text-anchor="middle" font-size="11.5" fill="#6c757d">Hann + 400pt Real FFT</text>
+          <rect x="140" y="166" width="540" height="50" rx="8" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1.5"/>
+          <text x="410" y="188" text-anchor="middle" font-size="14" font-weight="700" fill="#212529">Repository / Protocol 與 Model / DTO 層</text>
+          <text x="410" y="206" text-anchor="middle" font-size="11.5" fill="#6c757d">資料存取抽象化、DTO 轉換（Codable）、二進位資料壓縮與解壓</text>
 
-          <line x1="624" y1="61" x2="660" y2="61" stroke="#495057" stroke-width="1.5" marker-end="url(#sh-arrow)"/>
+          <!-- 左右雙向分支 -->
+          <line x1="270" y1="216" x2="270" y2="236" stroke="#495057" stroke-width="1.5" marker-end="url(#sh-arrow)"/>
+          <line x1="550" y1="216" x2="550" y2="236" stroke="#495057" stroke-width="1.5" marker-end="url(#sh-arrow)"/>
 
-          <rect x="666" y="24" width="134" height="74" rx="8" fill="#212529" stroke="#212529" stroke-width="1.5"/>
-          <text x="733" y="54" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">震顫指標輸出</text>
-          <text x="733" y="76" text-anchor="middle" font-size="11.5" fill="#dee2e6">PSD / RMS / 等級</text>
+          <!-- 左：Network Service + Vapor + PostgreSQL -->
+          <rect x="40" y="240" width="350" height="56" rx="8" fill="#ffffff" stroke="#adb5bd" stroke-width="1.5"/>
+          <text x="215" y="263" text-anchor="middle" font-size="13.5" font-weight="700" fill="#212529">Network Service &amp; 雲端後端</text>
+          <text x="215" y="282" text-anchor="middle" font-size="11.5" fill="#6c757d">HTTPS (JWT) → Vapor 4 (Docker/Render) → PostgreSQL / pgvector</text>
 
-          <!-- 垂直向下分流 -->
-          <line x1="733" y1="98" x2="733" y2="145" stroke="#495057" stroke-width="1.5"/>
-          <line x1="120" y1="145" x2="733" y2="145" stroke="#495057" stroke-width="1.5"/>
-          <line x1="120" y1="145" x2="120" y2="180" stroke="#495057" stroke-width="1.5" marker-end="url(#sh-arrow)"/>
-          <line x1="410" y1="145" x2="410" y2="180" stroke="#495057" stroke-width="1.5" marker-end="url(#sh-arrow)"/>
-          <line x1="690" y1="145" x2="690" y2="180" stroke="#495057" stroke-width="1.5" marker-end="url(#sh-arrow)"/>
-
-          <!-- 下層：呈現、儲存、同步 -->
-          <rect x="20" y="186" width="200" height="84" rx="8" fill="#ffffff" stroke="#adb5bd" stroke-width="1.5"/>
-          <text x="120" y="216" text-anchor="middle" font-size="14" font-weight="700" fill="#212529">SwiftUI &amp; Swift Charts</text>
-          <text x="120" y="238" text-anchor="middle" font-size="11.5" fill="#6c757d">儀表板 / 即時三軸波形</text>
-          <text x="120" y="256" text-anchor="middle" font-size="11.5" fill="#6c757d">PSD 功率頻譜分佈圖</text>
-
-          <rect x="300" y="186" width="220" height="84" rx="8" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1.5"/>
-          <text x="410" y="216" text-anchor="middle" font-size="14" font-weight="700" fill="#212529">SwiftData 本地資料庫</text>
-          <text x="410" y="238" text-anchor="middle" font-size="11.5" fill="#6c757d">背景 Actor 批次寫入儲存</text>
-          <text x="410" y="256" text-anchor="middle" font-size="11.5" fill="#6c757d">HTML + SVG 轉臨床 PDF</text>
-
-          <rect x="580" y="186" width="220" height="84" rx="8" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1.5"/>
-          <text x="690" y="216" text-anchor="middle" font-size="14" font-weight="700" fill="#212529">Vapor 雲端 API 同步</text>
-          <text x="690" y="238" text-anchor="middle" font-size="11.5" fill="#6c757d">Zlib 壓縮上傳 / JWT 認證</text>
-          <text x="690" y="256" text-anchor="middle" font-size="11.5" fill="#6c757d">照護者綁定與 AI 摘要接收</text>
+          <!-- 右：Bluetooth Service + 穿戴手套 -->
+          <rect x="430" y="240" width="350" height="56" rx="8" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1.5"/>
+          <text x="605" y="263" text-anchor="middle" font-size="13.5" font-weight="700" fill="#212529">Bluetooth Service &amp; 穿戴式手套</text>
+          <text x="605" y="282" text-anchor="middle" font-size="11.5" fill="#6c757d">CoreBluetooth (BLE) → ESP32-C3 通訊轉接 ↔ STM32 主控</text>
         </svg>
       </div>
 
@@ -261,19 +245,19 @@
         <div class="col-md-4">
           <div class="info-panel-muted p-3 h-100">
             <strong class="d-block mb-1">View / ViewModel 層</strong>
-            <span class="small text-muted">管理 UI 狀態與使用者互動，強制透過 <code>@MainActor</code> 節流更新圖表與電量指標。</span>
+            <span class="small text-muted">依患者與照護者角色切換功能導覽，整合多頁籤狀態與表單輸入驗證。</span>
           </div>
         </div>
         <div class="col-md-4">
           <div class="info-panel-muted p-3 h-100">
-            <strong class="d-block mb-1">Service Layer（BLE / DSP / PDF）</strong>
-            <span class="small text-muted">隔離高頻感測回呼、Accelerate 數學運算、Zlib 壓縮與 WebKit 報告算繪。</span>
+            <strong class="d-block mb-1">Repository &amp; Service 層</strong>
+            <span class="small text-muted">封裝 RESTful API 請求、Zlib 壓縮上傳、BLE 裝置連線與 PDF 報告產出。</span>
           </div>
         </div>
         <div class="col-md-4">
           <div class="info-panel-muted p-3 h-100">
-            <strong class="d-block mb-1">Local Model vs. DTO</strong>
-            <span class="small text-muted">本地 <code>@Model</code> 與網路 <code>Codable DTO</code> 分離，避免資料庫綱要與 API 耦合。</span>
+            <strong class="d-block mb-1">Vapor 4 + PostgreSQL 後端</strong>
+            <span class="small text-muted">以 13 張資料表管理帳號、照護配對、量測、用藥與生活紀錄，並以 pgvector 支援 AI 對話檢索。</span>
           </div>
         </div>
       </div>
@@ -296,39 +280,39 @@
           </thead>
           <tbody>
             <tr>
-              <td class="fw-semibold">程式語言與架構</td>
-              <td>Swift 5.9+、SwiftUI、MVVM</td>
-              <td>全專案畫面宣告、狀態管理（<code>AppState</code>）與 ViewModel 商業邏輯分離</td>
+              <td class="fw-semibold">App 前端與架構</td>
+              <td>Swift、SwiftUI、MVVM + Repository</td>
+              <td>建置所有 iOS 操作介面、雙角色權限狀態管理與資料存取抽象層</td>
             </tr>
             <tr>
-              <td class="fw-semibold">藍牙硬體通訊</td>
-              <td>CoreBluetooth</td>
-              <td>掃描穿戴手套、訂閱 GATT 特徵值並接收 100 Hz 三軸陀螺儀／加速度計封包</td>
-            </tr>
-            <tr>
-              <td class="fw-semibold">數位訊號處理</td>
-              <td>Accelerate (vDSP)</td>
-              <td>執行去均值、Hann Window 與 400 點 Real FFT，計算三軸單邊 PSD 能量與主頻</td>
-            </tr>
-            <tr>
-              <td class="fw-semibold">資料視覺化</td>
+              <td class="fw-semibold">圖表與視覺呈現</td>
               <td>Swift Charts</td>
-              <td>繪製即時三軸感測器時域波形圖與頻域 PSD 功率頻譜分佈圖</td>
+              <td>繪製震顫強度走勢圖、PSD 頻率分佈圖與服藥時間對照曲線</td>
             </tr>
             <tr>
-              <td class="fw-semibold">本地資料持久化</td>
-              <td>SwiftData (<code>@Model</code>)</td>
-              <td>離線優先保存 <code>GloveData</code>、<code>TremorRecord</code>、<code>MedicationItem</code> 與 <code>SymptomLog</code></td>
+              <td class="fw-semibold">裝置通訊與訊號整合</td>
+              <td>CoreBluetooth、Accelerate (vDSP)</td>
+              <td>接收穿戴手套數據並整合裝置端分析與簡易／標準模式數值顯示</td>
             </tr>
             <tr>
-              <td class="fw-semibold">網路與資料壓縮</td>
-              <td>URLSession (async/await)、Compression (Zlib)</td>
-              <td>串接 Vapor 後端 RESTful API、JWT 驗證以及高頻感測器資料壓縮上傳</td>
+              <td class="fw-semibold">網路串接與資料壓縮</td>
+              <td>URLSession (async/await)、Zlib</td>
+              <td>帶入 JWT 與單一裝置會話驗證串接後端 API，並批次壓縮上傳感測數據</td>
             </tr>
             <tr>
-              <td class="fw-semibold">醫療報告輸出</td>
-              <td>WebKit、UIPrintPageRenderer、HTML / SVG</td>
-              <td>將動態生成之趨勢與頻譜 SVG 嵌入 <code>report_template.html</code> 並算繪為 PDF</td>
+              <td class="fw-semibold">PDF 醫療報告輸出</td>
+              <td>HTML / SVG 樣板、WebKit / UIPrintPageRenderer</td>
+              <td>將趨勢圖表、用藥清單、生活紀錄與 AI 摘要整合成可分享之 PDF 文件</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">後端與資料庫（團隊整合）</td>
+              <td>Vapor 4 (Swift 6.1)、Fluent、PostgreSQL (pgvector)、Docker / Render</td>
+              <td>團隊後端組建置 RESTful API、資料持久化、OpenAI 對話摘要與 Resend 密碼重設</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">協作與介面測試</td>
+              <td>Git / GitHub、Postman</td>
+              <td>跨組分支合併與版本管理，以及登入、用藥、量測與 AI 端點測試驗證</td>
             </tr>
           </tbody>
         </table>
@@ -344,29 +328,25 @@
       <div class="row g-4">
         <div class="col-lg-6">
           <div class="info-panel p-4 h-100">
-            <h3 class="h6 fw-bold mb-3">關鍵程式模組結構</h3>
+            <h3 class="h6 fw-bold mb-3">App 模組實作與介面串接</h3>
             <ul class="list-unstyled text-secondary small mb-0 d-flex flex-column gap-2">
-              <li><span class="code-path">App/SteadyHopeApp.swift</span>：註冊 SwiftData <code>ModelContainer</code> 並注入全域 <code>AppState</code>。</li>
-              <li><span class="code-path">Services/BLE/PacketParser.swift</span>：解析 20-byte 二進位 IMU 封包與電量資訊。</li>
-              <li><span class="code-path">Services/SignalProcessing/DataQualityChecker.swift</span>：驗證封包序號連續性與 Tick 時間差。</li>
-              <li><span class="code-path">Services/SignalProcessing/TremorFFTAnalyzer.swift</span>：執行 400 點 Real FFT 並判定 4–6 Hz 與 3–12 Hz 震顫能量級距。</li>
-              <li><span class="code-path">Services/Networking/NetworkClient.swift</span>：整合 JWT 授權與 Zlib 壓縮封包上傳。</li>
-              <li><span class="code-path">Services/Report/PDFReportGenerator.swift</span>：組裝動態 SVG 圖表至醫療報告樣板並輸出多頁 PDF。</li>
+              <li><span class="code-path">帳號與照護配對</span>：實作登入註冊、忘記密碼（6 位數驗證碼）、單一裝置會話驗證、佩戴者／照護者雙角色側邊導覽、看病前準備提示，以及 6 位數時效性配對碼與兩項用藥授權開關。</li>
+              <li><span class="code-path">手套控制與即時數據</span>：整合藍牙連線狀態、電量顯示與配戴初期拉線長度校準（最多 14 cm Slider），提供手動／自動模式切換、簡易／標準數據檢視，以及量測紀錄之活動標籤、備註與照片補記。</li>
+              <li><span class="code-path">健康與用藥管理</span>：區分固定排程打卡與單次補登兩條資料流程，支援口服、貼片與注射三劑型及日期區間查詢；貼片流程包含舊貼片移除確認、12 處部位 14 天輪替提醒與 30 秒按壓倒數，並整合藥效波動對照圖。</li>
+              <li><span class="code-path">生活互動、影音與自評</span>：實作病患與家屬心情留言板（含僅照護者可見設定）、突發症狀照片／影片紀錄牆、血壓／血糖／體溫／體重與睡眠飲食登錄，以及 5 題快篩、三大主題與 25 題綜合自評量表。</li>
+              <li><span class="code-path">AI 助理與回診報告</span>：串接「小安」AI 對話查詢與代記確認流程；回診前可自選日期區間與健康主題生成 AI 摘要草稿、親自核對編輯後輸出含圖表與紀錄清單的 PDF 報告。</li>
             </ul>
           </div>
         </div>
 
         <div class="col-lg-6">
           <div class="info-panel p-4 h-100">
-            <h3 class="h6 fw-bold mb-3">專案組態與版本演進</h3>
-            <p class="text-secondary small mb-3">
-              開發初期曾以獨立測試專案進行 BLE 手套連線驗證，後續統一整合至
-              <span class="code-path">com.fannno.SteadyHope</span> 並管理
-              <span class="code-path">project.pbxproj</span> 中的背景藍牙權限（<code>bluetooth-central</code>）與多遠端儲存庫同步。
-            </p>
-            <p class="text-secondary small mb-0">
-              在功能整合後，團隊針對無網路場域進行離線優先（Offline-First）測試，並於 2026 年 9 月完成 Version 1.0.0 里程碑與淡江大學資管系專題製作競賽發表。
-            </p>
+            <h3 class="h6 fw-bold mb-3">跨組協作與整合驗證流程</h3>
+            <ul class="list-unstyled text-secondary small mb-0 d-flex flex-column gap-2">
+              <li><span class="code-path">前後端介面規格對齊</span>：團隊 6 人採跨組平行開發，透過 Git / GitHub 進行版本整合；App 串接前先與後端組確認欄位與 DTO 格式，並以 Postman 測試登入、用藥與紀錄查詢等 API 端點。</li>
+              <li><span class="code-path">雙角色配對與權限實測</span>：使用佩戴者（Hoper）與照護者（Steadyer）雙帳號進行操作驗證，確認 6 位數配對碼綁定、兩項用藥授權開關與解除配對後的畫面同步。</li>
+              <li><span class="code-path">功能聯調與專題發表</span>：完成裝置數據顯示、日常照護紀錄儲存與回診 PDF 預覽匯出的跨頁面串接測試，並於 2026 年 9 月參與淡江大學資管系專題製作競賽獲得第三名。</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -381,48 +361,48 @@
       <div class="row g-4">
         <div class="col-lg-6">
           <div class="troubleshoot-card">
-            <h3 class="h6 fw-bold mb-2">1. BLE 高頻掉包與硬體計時器溢位（Timer Rollover）</h3>
+            <h3 class="h6 fw-bold mb-2">1. 跨領域硬體知識門檻與 3D 列印進度延宕</h3>
             <p class="small text-muted mb-2">
-              <strong>問題：</strong>100 Hz 藍牙串流受環境干擾易發生掉包，且硬體 Tick 計數器在溢位歸零時會導致時間差計算錯誤。
+              <strong>問題：</strong>團隊成員皆為資管背景、未曾修習硬體課程，製作實體穿戴手套時遇到機構配置與 3D 列印耗時過長的問題，連帶影響軟體聯調進度。
             </p>
             <p class="small text-secondary mb-0">
-              <strong>解法：</strong>於封包解析層加入環狀緩衝區隔離接收回呼與運算執行緒，並以模數差值公式校正計時器溢位，依掉包率門檻決定線性補值或捨棄受損視窗。
+              <strong>解法：</strong>軟體端成員一同加入機構與穿戴方式的發想討論（如調整前臂支撐與拉線固定配置），並先以既有資料與模擬流程平行開發 App 功能，降低等待硬體造成的阻塞。
             </p>
           </div>
         </div>
 
         <div class="col-lg-6">
           <div class="troubleshoot-card">
-            <h3 class="h6 fw-bold mb-2">2. FFT 頻譜洩漏與靜置時除零（NaN）問題</h3>
+            <h3 class="h6 fw-bold mb-2">2. 缺乏真實患者接觸經驗，需反覆查證照護需求</h3>
             <p class="small text-muted mb-2">
-              <strong>問題：</strong>原始訊號含 1g 重力直流偏置且視窗邊界不連續會掩蓋 4–6 Hz 震顫主峰；手套靜止時總能量趨近零易產生 NaN。
+              <strong>問題：</strong>身邊沒有帕金森氏症患者，初期無法完全掌握使用者的實際需求與用藥習慣，容易遺漏實務細節。
             </p>
             <p class="small text-secondary mb-0">
-              <strong>解法：</strong>FFT 前先扣除平均值並乘上 Hann Window 抑制頻譜洩漏；正規化前加入最小能量閾值防護，低於底噪時直接回傳基準零值。
+              <strong>解法：</strong>投入大量時間查閱醫療衛教資料與病友照護資源（如巴金森寶典），才發覺用藥不只有口服，還包含貼片與注射劑型，進而補足貼片部位輪替提醒、生活情境補記與回診準備等功能。
             </p>
           </div>
         </div>
 
         <div class="col-lg-6">
           <div class="troubleshoot-card">
-            <h3 class="h6 fw-bold mb-2">3. 高頻寫入造成 UI 掉幀與鍵盤收合跳動</h3>
+            <h3 class="h6 fw-bold mb-2">3. 雙角色權限調整與患者主導授權機制</h3>
             <p class="small text-muted mb-2">
-              <strong>問題：</strong>每 10 ms 在主執行緒寫入 SwiftData 會阻塞畫面更新；登入驗證通過後立即切換路由會與鍵盤收合動畫衝突。
+              <strong>問題：</strong>初期設計未開放照護者修改資料，但考量患者實際使用時可能因手部震顫不便自行輸入，完全鎖定反而增加使用門檻。
             </p>
             <p class="small text-secondary mb-0">
-              <strong>解法：</strong>將資料庫批次儲存移至背景 Actor Context，UI 指標以 <code>@MainActor</code> 節流更新；登入流程改為先解除鍵盤焦點再執行畫面切換。
+              <strong>解法：</strong>與後端溝通調整權限設計，改為由患者（Hoper）在 App 內主動控制照護者（Steadyer）權限，分別開關「管理用藥排程」與「新增用藥紀錄」，並由後端每次請求即時核對授權。
             </p>
           </div>
         </div>
 
         <div class="col-lg-6">
           <div class="troubleshoot-card">
-            <h3 class="h6 fw-bold mb-2">4. 感測封包 HTTP 413 過大與 PDF 跨頁裁切</h3>
+            <h3 class="h6 fw-bold mb-2">4. 操作狀態提示分類與硬體作動標記的正確解讀</h3>
             <p class="small text-muted mb-2">
-              <strong>問題：</strong>大量原始 JSON 波形上傳易觸發 HTTP 413 錯誤；長篇醫療報告在匯出 PDF 時容易在頁面邊緣截斷圖表。
+              <strong>問題：</strong>若介面未區分狀態來源，使用者易將「藍牙未連線」誤認成手套故障，或把裝置回傳的馬達命令標記（<code>motor_enabled</code>）誤以為是硬體已成功抑震；網路失敗時也容易誤判資料已保存。
             </p>
             <p class="small text-secondary mb-0">
-              <strong>解法：</strong>上傳前於客戶端以 Zlib（<code>libcompression</code>）進行串流壓縮；PDF 產生器動態追蹤垂直座標偏移量，超出邊界即自動分頁並為缺漏指標補上 <code>N/A</code> 安全預設值。
+              <strong>解法：</strong>將狀態提示明確拆分為「裝置、分析、網路」三類，無可靠數據時保留 <code>--</code> 不補零、同步失敗保留原內容供重試，並在介面與報告說明中明確標註馬達標記僅代表命令狀態而非醫療成效。
             </p>
           </div>
         </div>
@@ -435,7 +415,7 @@
     <div class="container">
       <h2 class="h4 section-heading">個人負責的工作與實際貢獻</h2>
       <p class="text-secondary mb-4">
-        本專題為跨軟硬體團隊協作成果，以下明確區分個人在 iOS App 端的實際開發貢獻與其他組員負責範圍：
+        本專題為 6 人跨組協作成果（涵蓋機構硬體、演算法與 App／後端），以下明確區分個人在 iOS App 端的實際負責內容與其他組員分工：
       </p>
 
       <div class="row g-4">
@@ -443,11 +423,12 @@
           <div class="role-boundary-box role-personal">
             <h3 class="h6 fw-bold mb-3"><i class="bi bi-person-check me-2"></i>個人實際負責項目（iOS App 端開發）</h3>
             <ul class="list-unstyled text-secondary small mb-0 d-flex flex-column gap-2">
-              <li><i class="bi bi-check2 text-dark me-2"></i>設計並實作 SwiftUI + MVVM 整體專案架構與全域狀態管理（<code>SteadyHopeApp</code>、<code>AppState</code>），並處理 Xcode 專案組態與簽章整合。</li>
-              <li><i class="bi bi-check2 text-dark me-2"></i>開發 CoreBluetooth 智慧手套連線管理、20-byte 封包解析與 Sequence / Tick 品質校準機制。</li>
-              <li><i class="bi bi-check2 text-dark me-2"></i>實作基於 Accelerate (vDSP) 的去均值、Hann Window、400 點 Real FFT 與 PSD 震顫頻譜分析管線。</li>
-              <li><i class="bi bi-check2 text-dark me-2"></i>開發主畫面儀表板（<code>IndexView</code>）與 Swift Charts 即時三軸波形、PSD 頻譜圖介面，並修復登入鍵盤導覽問題。</li>
-              <li><i class="bi bi-check2 text-dark me-2"></i>建立 SwiftData 本地資料模型、實作客戶端 Vapor API 對接與 Zlib 壓縮上傳，以及 HTML + SVG 轉臨床 PDF 醫療報告產生器。</li>
+              <li><i class="bi bi-check2 text-dark me-2"></i>參與 App 整體 SwiftUI + MVVM + Repository 分層設計與頁面導覽架構，並負責 Xcode 專案整合與 Git / GitHub 版控協作。</li>
+              <li><i class="bi bi-check2 text-dark me-2"></i>設計 SteadyHope 系統識別標誌（Logo）與 App 視覺風格，結合手掌守護、震顫平穩波形與開放圓環意象。</li>
+              <li><i class="bi bi-check2 text-dark me-2"></i>開發帳號登入、佩戴者（Hoper）與照護者（Steadyer）雙角色介面切換、配對碼綁定及兩項用藥授權開關流程。</li>
+              <li><i class="bi bi-check2 text-dark me-2"></i>實作健康與用藥管理模組（涵蓋口服、貼片、注射排程、12 處貼片部位輪替與 30 秒按壓倒數、單次補登與歷史查詢）及生活紀錄、症狀影音與自評介面。</li>
+              <li><i class="bi bi-check2 text-dark me-2"></i>開發即時動作數據與儀表板呈現頁面、活動情境補記流程，並依狀態分類整理「裝置／分析／網路」提示。</li>
+              <li><i class="bi bi-check2 text-dark me-2"></i>串接 Vapor 4 後端 RESTful API、對話助理「小安」介面，以及 PDF 回診報告預覽與匯出功能。</li>
             </ul>
           </div>
         </div>
@@ -456,9 +437,9 @@
           <div class="role-boundary-box role-team">
             <h3 class="h6 fw-bold mb-3"><i class="bi bi-people me-2"></i>其他組員負責項目（專案整體分工）</h3>
             <ul class="list-unstyled text-muted small mb-0 d-flex flex-column gap-2">
-              <li><i class="bi bi-dot me-1"></i><strong>穿戴式硬體與韌體開發：</strong>實體智慧手套電路設計、微控制器（MCU）IMU 感測器韌體撰寫與 BLE 廣播端實作。</li>
-              <li><i class="bi bi-dot me-1"></i><strong>Vapor 後端與資料庫維運：</strong>後端伺服器架設、伺服器端資料庫 Schema 與 RESTful API 實作（個人負責 iOS 端 API 串接與聯調）。</li>
-              <li><i class="bi bi-dot me-1"></i><strong>後端 AI 摘要邏輯：</strong>伺服器端 AI 門診診詢摘要生成模組。</li>
+              <li><i class="bi bi-dot me-1"></i><strong>穿戴式硬體與機構組：</strong>3D 模型設計與列印、STM32 與 BNO055 電路接線、ESP32-C3 通訊轉接及馬達拉線機構實作。</li>
+              <li><i class="bi bi-dot me-1"></i><strong>訊號與控制演算法：</strong>MATLAB / Simulink 震顫估測模型建立、抑震觸發門檻規則與韌體整合。</li>
+              <li><i class="bi bi-dot me-1"></i><strong>Vapor 4 後端與資料庫維運：</strong>PostgreSQL（pgvector）13 張資料表建置、Docker / Render 容器部署及 OpenAI / Resend API 串接。</li>
             </ul>
           </div>
         </div>
@@ -475,59 +456,128 @@
         <div class="col-md-4">
           <div class="info-panel p-3 text-center h-100">
             <div class="fw-bold fs-5 text-dark">專題製作競賽第三名</div>
-            <div class="small text-muted">淡江大學資訊管理學系</div>
+            <div class="small text-muted">淡江大學資訊管理學系（2026 年 9 月 19 日）</div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="info-panel p-3 text-center h-100">
-            <div class="fw-bold fs-5 text-dark">Version 1.0.0</div>
-            <div class="small text-muted">完成離線優先、BLE 串流與 PDF 報告整合</div>
+            <div class="fw-bold fs-5 text-dark">軟硬體完整串接</div>
+            <div class="small text-muted">穿戴手套、iOS App 與 Vapor 4 後端連動</div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="info-panel p-3 text-center h-100">
-            <div class="fw-bold fs-5 text-dark">100 Hz 即時分析</div>
-            <div class="small text-muted">裝置端 vDSP 400 點 FFT 與 PSD 能量判定</div>
+            <div class="fw-bold fs-5 text-dark">完整照護與回診流程</div>
+            <div class="small text-muted">涵蓋用藥貼片防呆、AI 代記與 PDF 報告匯出</div>
           </div>
         </div>
       </div>
 
-      <div class="row g-4">
-        <div class="col-md-4">
-          <figure class="screenshot-figure">
-            <div class="screenshot-placeholder screenshot-placeholder-portrait">
-              <i class="bi bi-phone fs-2 mb-2"></i>
-              <div class="fw-semibold small text-dark mb-1">主畫面儀表板（預留畫面）</div>
-              <div class="small">待補入實機截圖：<br><span class="code-path">assets/images/steadyhope/dashboard.png</span></div>
-            </div>
+      <div class="row row-cols-2 row-cols-md-4 g-3">
+        <div class="col">
+          <figure class="screenshot-figure h-100">
+            <img src="../assets/images/steadyhope/dashboard.png" alt="SteadyHope 佩戴者首頁儀表板與看診準備畫面" class="img-fluid rounded border d-block mx-auto" style="max-height: 360px; width: auto;">
             <figcaption class="small text-muted mt-2 text-center">
-              呈現智慧手套 BLE 連線狀態、電量顯示與近期震顫量測摘要
+              佩戴者首頁儀表板、電量與「看診前準備」提醒
             </figcaption>
           </figure>
         </div>
 
-        <div class="col-md-4">
-          <figure class="screenshot-figure">
-            <div class="screenshot-placeholder screenshot-placeholder-portrait">
-              <i class="bi bi-activity fs-2 mb-2"></i>
-              <div class="fw-semibold small text-dark mb-1">即時波形與 PSD 頻譜圖（預留畫面）</div>
-              <div class="small">待補入實機截圖：<br><span class="code-path">assets/images/steadyhope/spectrum.png</span></div>
-            </div>
+        <div class="col">
+          <figure class="screenshot-figure h-100">
+            <img src="../assets/images/steadyhope/side-menu.png" alt="SteadyHope 側邊功能選單與提醒日程畫面" class="img-fluid rounded border d-block mx-auto" style="max-height: 360px; width: auto;">
             <figcaption class="small text-muted mt-2 text-center">
-              透過 Swift Charts 即時繪製三軸 IMU 波形與 4–6 Hz 頻譜能量分佈
+              側邊功能選單：提醒日程、量表、匯出與操作說明入口
             </figcaption>
           </figure>
         </div>
 
-        <div class="col-md-4">
-          <figure class="screenshot-figure">
-            <div class="screenshot-placeholder screenshot-placeholder-portrait">
-              <i class="bi bi-file-earmark-medical fs-2 mb-2"></i>
-              <div class="fw-semibold small text-dark mb-1">PDF 醫療評估報告預覽（預留畫面）</div>
-              <div class="small">待補入實機截圖：<br><span class="code-path">assets/images/steadyhope/pdf-report.png</span></div>
-            </div>
+        <div class="col">
+          <figure class="screenshot-figure h-100">
+            <img src="../assets/images/steadyhope/device-connected.png" alt="SteadyHope 手套已連線狀態與抑震控制模式設定畫面" class="img-fluid rounded border d-block mx-auto" style="max-height: 360px; width: auto;">
             <figcaption class="small text-muted mt-2 text-center">
-              由 HTML 樣板結合動態 SVG 趨勢圖自動產出之臨床報告文件
+              手套已連線、電量監測與馬達／抑震模式控制
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="col">
+          <figure class="screenshot-figure h-100">
+            <img src="../assets/images/steadyhope/tremor-data.png" alt="SteadyHope 即時動作數據與震動強度走勢畫面" class="img-fluid rounded border d-block mx-auto" style="max-height: 360px; width: auto;">
+            <figcaption class="small text-muted mt-2 text-center">
+              即時動作數據：主頻、RMS 強度走勢與馬達作用區間
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="col">
+          <figure class="screenshot-figure h-100">
+            <img src="../assets/images/steadyhope/caregiver-pairing.png" alt="SteadyHope 連動與帳號管理及照護者配對畫面" class="img-fluid rounded border d-block mx-auto" style="max-height: 360px; width: auto;">
+            <figcaption class="small text-muted mt-2 text-center">
+              連動與帳號管理：提供配對碼與照護者授權清單
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="col">
+          <figure class="screenshot-figure h-100">
+            <img src="../assets/images/steadyhope/medication-list.png" alt="SteadyHope 每日固定用藥清單打卡畫面" class="img-fluid rounded border d-block mx-auto" style="max-height: 360px; width: auto;">
+            <figcaption class="small text-muted mt-2 text-center">
+              健康與用藥管理：每日固定清單打卡與貼片流程入口
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="col">
+          <figure class="screenshot-figure h-100">
+            <img src="../assets/images/steadyhope/medication-trend.png" alt="SteadyHope 藥效波動分析與震動強度對照曲線畫面" class="img-fluid rounded border d-block mx-auto" style="max-height: 360px; width: auto;">
+            <figcaption class="small text-muted mt-2 text-center">
+              藥效波動分析：疊加服藥時間點與震動強度變化曲線
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="col">
+          <figure class="screenshot-figure h-100">
+            <img src="../assets/images/steadyhope/mood-board.png" alt="SteadyHope 心情留言板與病患家屬便利貼互動畫面" class="img-fluid rounded border d-block mx-auto" style="max-height: 360px; width: auto;">
+            <figcaption class="small text-muted mt-2 text-center">
+              心情留言板：每日心情標記與病患／家屬便利貼互動
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="col">
+          <figure class="screenshot-figure h-100">
+            <img src="../assets/images/steadyhope/ai-assistant.png" alt="SteadyHope 小安 AI 對話助理與自然語言代記畫面" class="img-fluid rounded border d-block mx-auto" style="max-height: 360px; width: auto;">
+            <figcaption class="small text-muted mt-2 text-center">
+              「小安」AI 助理：自然語言查詢與確認代記用藥紀錄
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="col">
+          <figure class="screenshot-figure h-100">
+            <img src="../assets/images/steadyhope/pdf-report.png" alt="SteadyHope PDF 回診報告預覽與摘要輸出畫面" class="img-fluid rounded border d-block mx-auto" style="max-height: 360px; width: auto;">
+            <figcaption class="small text-muted mt-2 text-center">
+              PDF 回診報告預覽：整合用藥清單、摘要與判讀規則附錄
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="col">
+          <figure class="screenshot-figure h-100">
+            <img src="../assets/images/steadyhope/user-guide.png" alt="SteadyHope 系統操作說明與圖文步驟指南畫面" class="img-fluid rounded border d-block mx-auto" style="max-height: 360px; width: auto;">
+            <figcaption class="small text-muted mt-2 text-center">
+              系統操作說明：依分類提供圖文步驟與關鍵字搜尋
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="col">
+          <figure class="screenshot-figure h-100">
+            <img src="../assets/images/steadyhope/about-app.png" alt="SteadyHope 關於我們與研究原型說明畫面" class="img-fluid rounded border d-block mx-auto" style="max-height: 360px; width: auto;">
+            <figcaption class="small text-muted mt-2 text-center">
+              關於我們：系統簡介、主要特色與研究原型說明
             </figcaption>
           </figure>
         </div>
